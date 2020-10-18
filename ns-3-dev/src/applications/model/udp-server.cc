@@ -200,8 +200,8 @@ UdpServer::HandleRead (Ptr<Socket> socket)
                     }
                   uint64_t up;
                   uint64_t low;
-                  s2e_get_range(diff,&up,&low);
-                  s2e_kill_state_printf(0,"The Range of diff is %ld,%ld",up,low);
+                  s2e_get_range(diff,&low,&up);
+                  s2e_kill_state_printf(0,"The Range of diff is %ld,%ld",low,up);
                 }
               NS_LOG_INFO ("TraceDelay: RX " << packet->GetSize () << " bytes from "
                                              << InetSocketAddress::ConvertFrom (from).GetIpv4 ()
