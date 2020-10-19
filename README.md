@@ -64,7 +64,7 @@ We provided a shell file to build s2e, if success, please skip to [Skip Point](#
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
 chmod +x initS2E.sh 
-sudo ./initS2E.sh
+./initS2E.sh
 ```
 
 Install the packages for s2e-env
