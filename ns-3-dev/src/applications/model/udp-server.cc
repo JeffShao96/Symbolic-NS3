@@ -198,8 +198,8 @@ UdpServer::HandleRead (Ptr<Socket> socket)
                     {
                       diff = (firstp.second - secondp.second).GetTimeStep ();
                     }
-                  uint64_t up;
-                  uint64_t low;
+                  uintptr_t up;
+                  uintptr_t low;
                   s2e_get_range(diff,&low,&up);
                   s2e_kill_state_printf(0,"The Range of diff is %ld,%ld",low,up);
                 }
