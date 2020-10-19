@@ -153,8 +153,8 @@ target_init
 
 # ${S2EGET} "demo.cc"                #use [S2EGET] to pass the script in to the image
 # cp demo.cc ns-3-dev/scratch        #copy the script to scratch folder
-# cd ns-3-dev                        #run the script
-.ns-3-dev/waf --run symDemo
+cd ns-3-dev                          #run the script
+./waf --run symDemo
 
 ##### NO TARGET HAS BEEN SPECIFIED DURING PROJECT CREATION #####
 ##### Please fetch and execute the target files manually   #####
