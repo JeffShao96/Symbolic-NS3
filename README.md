@@ -187,4 +187,4 @@ Executed the project:
 
     ./launch-s2e.sh
     
-You can use [demo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as example to write your own project.
+You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as example to write your own project.
