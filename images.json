@@ -60,8 +60,8 @@
         "binary_formats": ["elf"]
       },
       "hw": {
-        "default_disk_size": "4G",
-        "default_snapshot_size": "256M",
+        "default_disk_size": "10G",
+        "default_snapshot_size": "1G",
         "nic": "e1000"
       }
     },
