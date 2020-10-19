@@ -110,7 +110,7 @@ PointToPointChannel::TransmitStart (
   uint32_t wire = src == m_link[0].m_src ? 0 : 1;
 
   if(m_symbolicDelay&&!m_isinitialized){
-    uint64_t m_delayinit = 0;
+    uintptr_t m_delayinit = 0;
     s2e_make_symbolic(&m_delayinit,sizeof(m_delayinit),"m_delayinit");
     m_delay = Time(m_delayinit);
     if(m_delay<m_delaymin){
