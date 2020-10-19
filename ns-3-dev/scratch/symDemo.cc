@@ -45,14 +45,14 @@ main (int argc, char *argv[])
   std::vector<PointToPointHelper> pointToPoint (2);
   pointToPoint[0].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
   pointToPoint[0].SetChannelAttribute ("SymbolicMode", BooleanValue (true));
-  pointToPoint[0].SetChannelAttribute ("DelayMin", StringValue ("0s"));
-  pointToPoint[0].SetChannelAttribute ("DelayMax", StringValue ("1s"));
+  pointToPoint[0].SetChannelAttribute ("DelayMin", StringValue ("1ms"));
+  pointToPoint[0].SetChannelAttribute ("DelayMax", StringValue ("1000ms"));
 
 
   pointToPoint[1].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
   pointToPoint[1].SetChannelAttribute ("SymbolicMode", BooleanValue (true));
-  pointToPoint[1].SetChannelAttribute ("DelayMin", StringValue ("0s"));
-  pointToPoint[1].SetChannelAttribute ("DelayMax", StringValue ("1s"));
+  pointToPoint[1].SetChannelAttribute ("DelayMin", StringValue ("1ms"));
+  pointToPoint[1].SetChannelAttribute ("DelayMax", StringValue ("1000ms"));
 
   std::vector<NetDeviceContainer> devices (2);
   devices[0] = pointToPoint[0].Install (nodeAdjacencyList[0]);
