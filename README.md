@@ -42,7 +42,7 @@ bool PointToPointChannel::TransmitStart (
 {
   ...
   if(m_symbolicDelay&&!m_isinitialized){
-    uint64_t m_delayinit = 0;
+    uintptr_t m_delayinit = 0;
     s2e_make_symbolic(&m_delayinit,sizeof(m_delayinit),"m_delayinit");
     m_delay = Time(m_delayinit);
     if(m_delay<m_delaymin){
@@ -180,12 +180,11 @@ Create an empty project named pointToPoint, type is linux, it will run in a 32-b
     
 We provide a demo to show how symbolic works in NS-3 system:
     
-    cd $S2EDIR/project/<project_name>
-    wget -O demo.cc https://raw.githubusercontent.com/JeffShao96/S2E-NS-3/master/demo.cc
-    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/S2E-NS-3/master/bootstrap.sh
+    cd $S2EDIR/project/demo
+    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap.sh
     
 Executed the project:
 
     ./launch-s2e.sh
     
-You can use [demo.cc](./demo.cc) and [bootstrap.sh](./bootstrap.sh) as example to write your own project.
+You can use [demo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as example to write your own project.
