@@ -114,7 +114,7 @@ Since S2E will disable the networking when running, we need to install the NS-3 
 `launch.sh` is the script runs after image was created. We have already modified it to install the NS-3.If you want to install other softwares, you can use that as an example.
 
     cd $S2EDIR
-    wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubusercontent.com/JeffShao96/S2E-NS-3/master/launch.sh
+    wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/launch.sh
 
 Since NS-3 is not a 'small' software, sometimes we need to extend the image or memory size.
 
