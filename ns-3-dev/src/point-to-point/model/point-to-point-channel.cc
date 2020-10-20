@@ -42,11 +42,11 @@ PointToPointChannel::GetTypeId (void)
                    TimeValue (Seconds (0)),
                    MakeTimeAccessor (&PointToPointChannel::m_delay),
                    MakeTimeChecker ())
-    .AddAttribute ("DelayMin", "Symbobolic propagation delay through the channel Minimum", TimeValue (Seconds (0)),
+    .AddAttribute ("DelayMin", "Minimum value of the symbolic delay", TimeValue (Seconds (0)),
                   MakeTimeAccessor (&PointToPointChannel::m_delaymin), MakeTimeChecker ())
-    .AddAttribute ("DelayMax", "Symbobolic propagation delay through the channel Maximum", TimeValue (Seconds (10)),
+    .AddAttribute ("DelayMax", "Maximum value of the symbolic delay", TimeValue (Seconds (10)),
                   MakeTimeAccessor (&PointToPointChannel::m_delaymax), MakeTimeChecker ())
-    .AddAttribute ("SymbolicMode", "Control Signal of Symbolic Mode", BooleanValue (false),
+    .AddAttribute ("SymbolicMode", "Enable or disable the symbolic delay", BooleanValue (false),
                   MakeBooleanAccessor (&PointToPointChannel::m_symbolicDelay),
                   MakeBooleanChecker ())
     .AddTraceSource ("TxRxPointToPoint",
