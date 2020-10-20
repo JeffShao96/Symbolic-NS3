@@ -1,8 +1,8 @@
 # Symbolic-NS3 (Under Development)
-This demo will show how Symbolic Execution solve the problem.
+This demo shows how to solve the problem using symbolic NS-3.
 
 ## Code
-We modified two files in NS-3:
+We modified two files in the original NS-3:
 
 [point-to-point-channel.h](./ns-3-dev/src/point-to-point/model/point-to-point-channel.h):
 
@@ -10,23 +10,23 @@ We add three members to the class for the API:
 ```cpp
 private:
   ...
-  bool m_symbolicDelay;  //!< Control signal of symbolic mode
-  bool m_isinitialized = false; //!< Check the status of the symbolic delay
-  Time m_delaymax;  //!< Maximum propagation delay
-  Time m_delaymin;  //!< Minimum propagation delay
+  bool m_symbolicDelay;  //!< Enable or disable the symbolic delay
+  bool m_isinitialized = false; //!< Check whether the symbolic delay variable has been initialized
+  Time m_delaymax;  //!< Maximum value of the symbolic delay
+  Time m_delaymin;  //!< Minimum value of the symbolic delay
 ```
 [point-to-point-channel.cc](./ns-3-dev/src/point-to-point/model/point-to-point-channel.cc):
 
-Add attributes for API and initialize them.
+Add the following attributes for API and initialize them.
 
 ```cpp
   static TypeId tid = TypeId ("ns3::PointToPointChannel")
     ...
-    .AddAttribute ("DelayMin", "Symbobolic propagation delay through the channel Minimum", TimeValue (Seconds (0)),
+    .AddAttribute ("DelayMin", "Minimum value of the symbolic delay", TimeValue (Seconds (0)),
                   MakeTimeAccessor (&PointToPointChannel::m_delaymin), MakeTimeChecker ())
-    .AddAttribute ("DelayMax", "Symbobolic propagation delay through the channel Maximum", TimeValue (Seconds (10)),
+    .AddAttribute ("DelayMax", "Maximum value of the symbolic delay", TimeValue (Seconds (10)),
                   MakeTimeAccessor (&PointToPointChannel::m_delaymax), MakeTimeChecker ())
-    .AddAttribute ("SymbolicMode", "Control Signal of Symbolic Mode", BooleanValue (false),
+    .AddAttribute ("SymbolicMode", "Enable or disable the symbolic delay", BooleanValue (false),
                   MakeBooleanAccessor (&PointToPointChannel::m_symbolicDelay),
                   MakeBooleanChecker ())
 ...
@@ -60,7 +60,7 @@ bool PointToPointChannel::TransmitStart (
 
 ### Build S2E with s2e-env
 We highly recommand to build S2E with s2e-env. However, you can manually build S2E as well. 
-We provided a shell file to build s2e, if success, please skip to [Skip Point](#build-the-image).
+We have designed a shell file to build s2e, if successful, please skip to [Skip Point](#build-the-image).
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
 chmod +x initS2E.sh 
@@ -76,14 +76,14 @@ Clone the source code for s2e-env
 
     git clone https://github.com/s2e/s2e-env.git
 
-Create an virtual environment to build S2E
+Create a virtual environment to build S2E
 
     cd s2e-env
     python3 -m venv venv
     . venv/bin/activate
 **You should do the following steps in the virtual environment**
 
-If you want to quit the virtual environment, use the following command:
+If you want to quit from the virtual environment, use the following command:
 
     deactivate
 
@@ -109,9 +109,9 @@ build the source code
 **The process takes about 60 mins.**
 
 ### Build S2E-NS-3 image
-Since S2E will disable the networking when running, we need to install the NS-3 into the image before we run S2E-NS-3.
+Since S2E disables the networking when running, we need to install NS-3 into the image before we run S2E-NS-3.
 
-`launch.sh` is the script runs after image was created. We have already modified it to install the NS-3.If you want to install other softwares, you can use that as an example.
+`launch.sh` is the script that runs after the image is created. We have modified it to install NS-3. If you want to install other softwares, you can use that as an example.
 
     cd $S2EDIR
     wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/launch.sh
@@ -137,7 +137,7 @@ Example:
         "binary_formats": ["decree"]
       },
       "hw": {
-        "default_disk_size": "4G",                  --This is the disk size of image, make sure your hardware have enough space before you extend it
+        "default_disk_size": "4G",                  --This is the disk size of image, make sure your hardware has enough space before you extend it
         "default_snapshot_size": "256M",            --This is the Memory size, you should not set it too large, "1G" is recommended.
         "nic": "e1000"
       }
@@ -159,7 +159,7 @@ Run `s2e image_build` to check what image is available.
 
     s2e image_build <image_name> -g
 
-For Example:
+For example:
 
     s2e image_build debian-9.2.1-i386 -g
 
@@ -173,18 +173,18 @@ create an empty project in S2E:
 
     s2e new_project -m -i <image_name> -n <project_name> -t linux
 
-Eamxple:
-Create an empty project named pointToPoint, type is linux, it will run in a 32-bit system `debian-9.2.1-i386`
+Example:
+Create an empty project named pointToPoint, type is linux, it runs in a 32-bit system `debian-9.2.1-i386`
 
     s2e new_project -m -i debian-9.2.1-i386 -n demo -t linux
     
-We provide a demo to show how symbolic works in NS-3 system:
+We provide a demo to show how to symbolically execute NS-3:
     
     cd $S2EDIR/project/demo
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap.sh
     
-Executed the project:
+Execute the project:
 
     ./launch-s2e.sh
     
-You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as example to write your own project.
+You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as an example to write your own project.
