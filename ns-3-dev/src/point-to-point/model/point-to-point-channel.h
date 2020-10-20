@@ -151,10 +151,10 @@ private:
 
   Time          m_delay;    //!< Propagation delay
   std::size_t        m_nDevices; //!< Devices of this channel
-  bool m_symbolicDelay;  //!< Control signal of symbolic mode
-  bool m_isinitialized = false; //!< Check the status of the symbolic delay
-  Time m_delaymax;  //!< Maximum propagation delay
-  Time m_delaymin;  //!< Minimum propagation delay
+  bool m_symbolicDelay;  //!< Enable or disable the symbolic delay
+  bool m_isinitialized = false; //!< Check whether the symbolic delay variable has been initialized
+  Time m_delaymax;  //!< Maximum value of the symbolic delay
+  Time m_delaymin;  //!< Minimum value of the symbolic delay
   /**
    * The trace source for the packet transmission animation events that the 
    * device can fire.
