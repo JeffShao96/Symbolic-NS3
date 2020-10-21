@@ -1,67 +1,18 @@
 # Symbolic-NS3 (Under Development)
 
-Symbolic NS-3 is our on-going project to extend NS-3 by leveraging [symbolic execution](https://en.wikipedia.org/wiki/Symbolic_execution) so that it can be easily and efficiently used for exhaustive testing.
+Symbolic NS-3 is our on-going project to extend NS-3 for exhaustive testing where a user simulates a network protocol in all possible network environments with respect to some uncertain factors. Specifically, we modify and extend NS-3 by leveraging [symbolic execution](https://en.wikipedia.org/wiki/Symbolic_execution) so that it can be easily and efficiently used for exhaustive testing.
 
 Below is a short introduction of Symbolic NS-3, and you can find more information in this [short paper](Sym_NS_3_Draft.pdf).
 
-This demo shows how to solve the problem using symbolic NS-3.
-
-## Code
-We modified two files in the original NS-3:
-
-[point-to-point-channel.h](./ns-3-dev/src/point-to-point/model/point-to-point-channel.h):
-
-We add three members to the class for the API:
-```cpp
-private:
-  ...
-  bool m_symbolicDelay;  //!< Enable or disable the symbolic delay
-  bool m_isinitialized = false; //!< Check whether the symbolic delay variable has been initialized
-  Time m_delaymax;  //!< Maximum value of the symbolic delay
-  Time m_delaymin;  //!< Minimum value of the symbolic delay
-```
-[point-to-point-channel.cc](./ns-3-dev/src/point-to-point/model/point-to-point-channel.cc):
-
-Add the following attributes for API and initialize them.
-
-```cpp
-  static TypeId tid = TypeId ("ns3::PointToPointChannel")
-    ...
-    .AddAttribute ("DelayMin", "Minimum value of the symbolic delay", TimeValue (Seconds (0)),
-                  MakeTimeAccessor (&PointToPointChannel::m_delaymin), MakeTimeChecker ())
-    .AddAttribute ("DelayMax", "Maximum value of the symbolic delay", TimeValue (Seconds (10)),
-                  MakeTimeAccessor (&PointToPointChannel::m_delaymax), MakeTimeChecker ())
-    .AddAttribute ("SymbolicMode", "Enable or disable the symbolic delay", BooleanValue (false),
-                  MakeBooleanAccessor (&PointToPointChannel::m_symbolicDelay),
-                  MakeBooleanChecker ())
-...
-```
-
-We symbolize the delay in `Transit`:
-
-```cpp
-bool PointToPointChannel::TransmitStart (
-  Ptr<const Packet> p,
-  Ptr<PointToPointNetDevice> src,
-  Time txTime)
-{
-  ...
-  if(m_symbolicDelay&&!m_isinitialized){
-    uintptr_t m_delayinit = 0;
-    s2e_make_symbolic(&m_delayinit,sizeof(m_delayinit),"m_delayinit");
-    m_delay = Time(m_delayinit);
-    if(m_delay<m_delaymin){
-      s2e_kill_state(0,"Out of Range, Lower");
-    }else if(m_delay>m_delaymax){
-      s2e_kill_state(0,"Out of Range, Upper");
-    }
-    m_isinitialized = true;
-  }
-  ...
-}
-```
-
 ## Demo
+
+Let's consider an exhaustive testing problem in a network where two senders and one receiver are connected by two point-to-point links. Both senders simultaneously send a packet to the receiver. What is the range of all possible differences between the arrival times of these two packets if each link has an uncertain delay between 1 and 1000ms?
+
+We can use the brute force method with the current NS-3 to simulate all possible cases. You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+
+We propose a more efficient method using our proposed Symbolic NS-3. This repository contains our current Symbolic NS-3 and the corresponding scripts to run this demo, and the simulation result is also presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+
+Below is the instruction to download, install, and execute Symbolic NS-3.
 
 ### Build S2E with s2e-env
 We highly recommand to build S2E with s2e-env. However, you can manually build S2E as well. 
@@ -193,3 +144,59 @@ Execute the project:
     ./launch-s2e.sh
     
 You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as an example to write your own project.
+
+
+## Code
+We modified two files in the original NS-3:
+
+[point-to-point-channel.h](./ns-3-dev/src/point-to-point/model/point-to-point-channel.h):
+
+We add three members to the class for the API:
+```cpp
+private:
+  ...
+  bool m_symbolicDelay;  //!< Enable or disable the symbolic delay
+  bool m_isinitialized = false; //!< Check whether the symbolic delay variable has been initialized
+  Time m_delaymax;  //!< Maximum value of the symbolic delay
+  Time m_delaymin;  //!< Minimum value of the symbolic delay
+```
+[point-to-point-channel.cc](./ns-3-dev/src/point-to-point/model/point-to-point-channel.cc):
+
+Add the following attributes for API and initialize them.
+
+```cpp
+  static TypeId tid = TypeId ("ns3::PointToPointChannel")
+    ...
+    .AddAttribute ("DelayMin", "Minimum value of the symbolic delay", TimeValue (Seconds (0)),
+                  MakeTimeAccessor (&PointToPointChannel::m_delaymin), MakeTimeChecker ())
+    .AddAttribute ("DelayMax", "Maximum value of the symbolic delay", TimeValue (Seconds (10)),
+                  MakeTimeAccessor (&PointToPointChannel::m_delaymax), MakeTimeChecker ())
+    .AddAttribute ("SymbolicMode", "Enable or disable the symbolic delay", BooleanValue (false),
+                  MakeBooleanAccessor (&PointToPointChannel::m_symbolicDelay),
+                  MakeBooleanChecker ())
+...
+```
+
+We symbolize the delay in `Transit`:
+
+```cpp
+bool PointToPointChannel::TransmitStart (
+  Ptr<const Packet> p,
+  Ptr<PointToPointNetDevice> src,
+  Time txTime)
+{
+  ...
+  if(m_symbolicDelay&&!m_isinitialized){
+    uintptr_t m_delayinit = 0;
+    s2e_make_symbolic(&m_delayinit,sizeof(m_delayinit),"m_delayinit");
+    m_delay = Time(m_delayinit);
+    if(m_delay<m_delaymin){
+      s2e_kill_state(0,"Out of Range, Lower");
+    }else if(m_delay>m_delaymax){
+      s2e_kill_state(0,"Out of Range, Upper");
+    }
+    m_isinitialized = true;
+  }
+  ...
+}
+```
