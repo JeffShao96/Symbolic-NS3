@@ -6,17 +6,21 @@ Below is a short introduction of Symbolic NS-3, and you can find more informatio
 
 ## An exhaustive testing demo
 
-Let's consider an exhaustive testing problem in a network where two senders and one receiver are connected by two point-to-point links. Both senders simultaneously send a packet to the receiver. What is the range of all possible differences between the arrival times of these two packets if each link has an uncertain delay between 1 and 1000ms?
+Let's consider an exhaustive testing problem in a network where two senders and one receiver are connected by two point-to-point links. Both senders simultaneously send a UDP packet to the receiver. What is the range of all possible differences between the arrival times of these two packets if each link has an uncertain delay between 1 and 1000ms?
 
-We can use the brute force method with the current NS-3 to simulate all possible cases (a total of 1000*1000=1,000,000 cases). You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+We can use the brute force method with the current NS-3 to simulate all possible cases (a total of 1000*1000=1,000,000 cases). You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) (including [repeatCurrentDemo.sh](https://github.com/JeffShao96/Current-NS3/blob/main/repeatCurrentDemo.sh), [currentDemo.cc](https://github.com/JeffShao96/Current-NS3/blob/main/scratch/currentDemo.cc), and [udp-server.cc](https://github.com/JeffShao96/Current-NS3/blob/main/src/applications/model/udp-server.cc)). It takes a total of 521,900 seconds to run all 1,000,000 simulations, and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
 
-We propose a more efficient method using our proposed Symbolic NS-3. This repository contains our current Symbolic NS-3 and the corresponding scripts to run this demo, and the simulation result is also presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+We propose a more efficient method using our proposed Symbolic NS-3. This repository contains our current Symbolic NS-3 and the corresponding simulation scripts and code (including [symDemo.cc](symDemo.cc)  and [udp-server.cc](./ns-3-dev/src/applications/model/udp-server.cc)) to run this demo. It takes only 33 seconds to get the simulation result using Symbolic NS-3, and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
 
 Below is the instruction to download, install, and execute Symbolic NS-3.
 
+## Instruction
+
 ### Build S2E with s2e-env
+We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run Symbolic NS-3.
+
 We highly recommand to build S2E with s2e-env. However, you can manually build S2E as well. 
-We have designed a shell file to build s2e, if successful, please skip to [Skip Point](#build-the-image).
+We have written a shell file to build s2e. If successful, please skip to [Skip Point](#build-the-image).
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
 chmod +x initS2E.sh 
@@ -72,7 +76,7 @@ Since S2E disables the networking when running, we need to install NS-3 into the
     cd $S2EDIR
     wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/launch.sh
 
-Since NS-3 is not a 'small' software, sometimes we need to extend the image or memory size.
+Since NS-3 is quite big, sometimes we need to extend the image or memory size.
 
 Modify `$S2EDIR/source/guest-images/images.json`
 
@@ -101,9 +105,7 @@ Example:
 
 ```
 
-
-
-Give the authority to S2E.
+Set S2E permissions
 
     sudo usermod -a -G docker $(whoami)
     sudo chmod ugo+r /boot/vmlinu*
@@ -134,12 +136,12 @@ Create an empty project named pointToPoint, type is linux, it runs in a 32-bit s
 
     s2e new_project -m -i debian-9.2.1-i386 -n demo -t linux
     
-We provide a demo to show how to symbolically execute NS-3:
+Download the exhaustive testing demo
     
     cd $S2EDIR/project/demo
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap.sh
     
-Execute the project:
+Execute the exhasutive tesing demo
 
     ./launch-s2e.sh
     
@@ -147,11 +149,11 @@ You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as an 
 
 
 ## Code
-We modified two files in the original NS-3:
+The current Symbolic NS-3 modifies two files in the original NS-3:
 
 [point-to-point-channel.h](./ns-3-dev/src/point-to-point/model/point-to-point-channel.h):
 
-We add three members to the class for the API:
+We add three members to the class for the new channel attributes:
 ```cpp
 private:
   ...
@@ -162,7 +164,7 @@ private:
 ```
 [point-to-point-channel.cc](./ns-3-dev/src/point-to-point/model/point-to-point-channel.cc):
 
-Add the following attributes for API and initialize them.
+Add the attributes and initialize them.
 
 ```cpp
   static TypeId tid = TypeId ("ns3::PointToPointChannel")
@@ -177,7 +179,7 @@ Add the following attributes for API and initialize them.
 ...
 ```
 
-We symbolize the delay in `Transit`:
+We symbolize the delay in `TransmitStart`:
 
 ```cpp
 bool PointToPointChannel::TransmitStart (
