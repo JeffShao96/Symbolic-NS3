@@ -2,15 +2,15 @@
 
 Symbolic NS-3 is our on-going project to extend NS-3 for exhaustive testing where a user simulates a network protocol in all possible network environments with respect to some uncertain factors. Specifically, we modify and extend NS-3 by leveraging [symbolic execution](https://en.wikipedia.org/wiki/Symbolic_execution) so that it can be easily and efficiently used for exhaustive testing.
 
-Below is a short introduction of Symbolic NS-3, and you can find more information in this [short paper](Sym_NS_3_Draft.pdf). Please feel free to contact us (emails can be found in the short paper), if you have any questions, suggestions, or comments. 
+Below is a short introduction of Symbolic NS-3, and you can find more information in this [short paper](./Sym_NS_3_Draft.pdf). Please feel free to contact us (emails can be found in the short paper), if you have any questions, suggestions, or comments. 
 
 ## An exhaustive testing demo
 
 Let's consider an exhaustive testing problem in a network where two senders and one receiver are connected by two point-to-point links. Both senders simultaneously send a UDP packet to the receiver. What is the range of all possible differences between the arrival times of these two packets if each link has an uncertain delay between 1 and 1000ms?
 
-We can use the brute force method with the current NS-3 to simulate all possible cases (a total of 1000*1000=1,000,000 cases). You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) (including [repeatCurrentDemo.sh](https://github.com/JeffShao96/Current-NS3/blob/main/repeatCurrentDemo.sh), [currentDemo.cc](https://github.com/JeffShao96/Current-NS3/blob/main/scratch/currentDemo.cc), and [udp-server.cc](https://github.com/JeffShao96/Current-NS3/blob/main/src/applications/model/udp-server.cc)). It takes a total of 521,900 seconds to run all 1,000,000 simulations, and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+We can use the brute force method with the current NS-3 to simulate all possible cases (a total of 1000*1000=1,000,000 cases). You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) (including [repeatCurrentDemo.sh](https://github.com/JeffShao96/Current-NS3/blob/main/repeatCurrentDemo.sh), [currentDemo.cc](https://github.com/JeffShao96/Current-NS3/blob/main/scratch/currentDemo.cc), and [udp-server.cc](https://github.com/JeffShao96/Current-NS3/blob/main/src/applications/model/udp-server.cc)). It takes a total of 521,900 seconds to run all 1,000,000 simulations, and the simulation result is presented and discussed in the [short paper](./Sym_NS_3_Draft.pdf). 
 
-We propose a more efficient method using our proposed Symbolic NS-3. This repository contains our current Symbolic NS-3 and the corresponding simulation scripts and code (including [symDemo.cc](symDemo.cc)  and [udp-server.cc](./ns-3-dev/src/applications/model/udp-server.cc)) to run this demo. It takes only 33 seconds to get the simulation result using Symbolic NS-3, and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+We propose a more efficient method using our proposed Symbolic NS-3. This repository contains our current Symbolic NS-3 and the corresponding simulation scripts and code (including [symDemo.cc](./symDemo.cc)  and [udp-server.cc](./ns-3-dev/src/applications/model/udp-server.cc)) to run this demo. It takes only 33 seconds to get the simulation result using Symbolic NS-3, and the simulation result is presented and discussed in the [short paper](./Sym_NS_3_Draft.pdf). 
 
 Below is the instruction to download, install, and execute Symbolic NS-3.
 
@@ -148,7 +148,28 @@ Execute the exhasutive tesing demo
 You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as an example to write your own project.
 
 
-## Code
+## Simulation Code
+
+To find the range of the difference between the arrival times of two packets using Symbolic NS-3, we write one script. The NS-3 script [symDemo.cc](./symDemo.cc) simulates the network with two symbolic link delays, each in the range of [1, 1000] ms. 
+
+```cpp
+...
+  std::vector<PointToPointHelper> pointToPoint (2);
+  pointToPoint[0].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
+  pointToPoint[0].SetChannelAttribute ("SymbolicMode", BooleanValue (true));
+  pointToPoint[0].SetChannelAttribute ("DelayMin", TimeValue (Time("1ms")));
+  pointToPoint[0].SetChannelAttribute ("DelayMax", TimeValue (Time("1000ms")));
+
+  pointToPoint[1].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
+  pointToPoint[1].SetChannelAttribute ("SymbolicMode", BooleanValue (true));
+  pointToPoint[1].SetChannelAttribute ("DelayMin", TimeValue (Time("1ms")));
+  pointToPoint[1].SetChannelAttribute ("DelayMax", TimeValue (Time("1000ms")));
+...
+```
+
+In addition, we modify NS-3 file [udp-server.cc](./src/applications/model/udp-server.cc) to keep track of the packet arrival times and then calculate and print out their difference.
+
+## Symbolic NS-3 Code
 The current Symbolic NS-3 modifies two files in the original NS-3:
 
 [point-to-point-channel.h](./ns-3-dev/src/point-to-point/model/point-to-point-channel.h):
