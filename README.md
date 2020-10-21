@@ -19,7 +19,7 @@ Below is the instruction to download, install, and execute Symbolic NS-3.
 ### Build S2E with s2e-env
 We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run Symbolic NS-3.
 
-We highly recommand to build S2E with s2e-env. However, you can manually build S2E as well. 
+We highly recommend to build S2E with s2e-env. However, you can manually build S2E as well. 
 We have written a shell file to build s2e. If successful, please skip to [Skip Point](#build-the-image).
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
@@ -132,7 +132,7 @@ create an empty project in S2E:
     s2e new_project -m -i <image_name> -n <project_name> -t linux
 
 Example:
-Create an empty project named pointToPoint, type is linux, it runs in a 32-bit system `debian-9.2.1-i386`
+Create an empty project named pointToPoint, linux type, it runs in a 32-bit system `debian-9.2.1-i386`
 
     s2e new_project -m -i debian-9.2.1-i386 -n demo -t linux
     
@@ -141,7 +141,7 @@ Download the exhaustive testing demo
     cd $S2EDIR/project/demo
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap.sh
     
-Execute the exhasutive tesing demo
+Execute the exhaustive testing demo
 
     ./launch-s2e.sh
     
