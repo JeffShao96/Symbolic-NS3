@@ -2,6 +2,8 @@
 
 Symbolic NS-3 is our on-going project to extend NS-3 by leveraging [symbolic execution](https://en.wikipedia.org/wiki/Symbolic_execution) so that it can be easily and efficiently used for exhaustive testing.
 
+Below is a short introduction of Symbolic NS-3, and you can find more information in this [short paper](Sym_NS_3_Draft.pdf).
+
 This demo shows how to solve the problem using symbolic NS-3.
 
 ## Code
