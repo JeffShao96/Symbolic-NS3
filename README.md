@@ -148,7 +148,7 @@ Execute the exhasutive tesing demo
 You can use [symDemo.cc](./symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as an example to write your own project.
 
 
-## Simulation Code
+## Exhaustive Testing Demo Code
 
 To find the range of the difference between the arrival times of two packets using Symbolic NS-3, we write one script. The NS-3 script [symDemo.cc](./symDemo.cc) simulates the network with two symbolic link delays, each in the range of [1, 1000] ms. 
 
