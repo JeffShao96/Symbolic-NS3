@@ -4,11 +4,11 @@ Symbolic NS-3 is our on-going project to extend NS-3 for exhaustive testing wher
 
 Below is a short introduction of Symbolic NS-3, and you can find more information in this [short paper](Sym_NS_3_Draft.pdf).
 
-## Demo
+## An exhaustive testing demo
 
 Let's consider an exhaustive testing problem in a network where two senders and one receiver are connected by two point-to-point links. Both senders simultaneously send a packet to the receiver. What is the range of all possible differences between the arrival times of these two packets if each link has an uncertain delay between 1 and 1000ms?
 
-We can use the brute force method with the current NS-3 to simulate all possible cases. You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
+We can use the brute force method with the current NS-3 to simulate all possible cases (a total of 1000*1000=1,000,000 cases). You can download the corresponding scripts and code [here](https://github.com/JeffShao96/Current-NS3) and the simulation result is presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
 
 We propose a more efficient method using our proposed Symbolic NS-3. This repository contains our current Symbolic NS-3 and the corresponding scripts to run this demo, and the simulation result is also presented and discussed in the [short paper]((Sym_NS_3_Draft.pdf)). 
 
