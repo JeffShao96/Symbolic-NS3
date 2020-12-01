@@ -1,0 +1,942 @@
+Revision: 
+Config date: Mon Nov  9 01:29:03 UTC 2020
+
+[Z3] Initializing
+Current data layout: e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128
+Current target triple: x86_64-unknown-linux-gnu
+Creating plugin CorePlugin
+Creating plugin BaseInstructions
+Creating plugin HostFiles
+Creating plugin Vmi
+Creating plugin MemUtils
+Creating plugin WebServiceInterface
+Creating plugin ExecutionTracer
+Creating plugin ModuleTracer
+Creating plugin KeyValueStore
+Creating plugin TranslationBlockCoverage
+Creating plugin ModuleExecutionDetector
+Creating plugin ForkLimiter
+Creating plugin ProcessExecutionDetector
+Creating plugin ModuleMap
+Creating plugin MemoryMap
+Creating plugin MultiSearcher
+Creating plugin CUPASearcher
+Creating plugin StaticFunctionModels
+Creating plugin TestCaseGenerator
+Creating plugin LinuxMonitor
+Creating plugin LuaBindings
+Creating plugin LuaCoreEvents
+Initializing LuaBindings
+WARNING: Cannot get configuration value 'pluginsConfig['LuaBindings'].logLevel':
+    [string "return pluginsConfig['LuaBindings'].logLevel"]:1: attempt to index a nil value (field 'LuaBindings')
+
+Initializing LuaCoreEvents
+WARNING: Cannot get configuration value 'pluginsConfig['LuaCoreEvents'].logLevel':
+    [string "return pluginsConfig['LuaCoreEvents'].logLeve..."]:1: attempt to index a nil value (field 'LuaCoreEvents')
+
+LuaCoreEvents: Registering instrumentation for core signals
+WARNING: Cannot get configuration value 'pluginsConfig['LuaCoreEvents'].onStateForkDecide':
+    [string "return pluginsConfig['LuaCoreEvents'].onState..."]:1: attempt to index a nil value (field 'LuaCoreEvents')
+
+WARNING: Cannot get configuration value 'pluginsConfig['LuaCoreEvents'].onStateKill':
+    [string "return pluginsConfig['LuaCoreEvents'].onState..."]:1: attempt to index a nil value (field 'LuaCoreEvents')
+
+WARNING: Cannot get configuration value 'pluginsConfig['LuaCoreEvents'].onTimer':
+    [string "return pluginsConfig['LuaCoreEvents'].onTimer..."]:1: attempt to index a nil value (field 'LuaCoreEvents')
+
+Initializing TestCaseGenerator
+WARNING: Cannot get configuration value 'pluginsConfig['TestCaseGenerator'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['TestCaseGenerator'].generateOnStateFork':
+    value of type nil can not be converted to boolean
+
+Initializing MultiSearcher
+WARNING: Cannot get configuration value 'pluginsConfig['MultiSearcher'].logLevel':
+    [string "return pluginsConfig['MultiSearcher'].logLeve..."]:1: attempt to index a nil value (field 'MultiSearcher')
+
+Initializing ForkLimiter
+WARNING: Cannot get configuration value 'pluginsConfig['ForkLimiter'].logLevel':
+    value of type nil can not be converted to string
+
+Initializing KeyValueStore
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].logLevel':
+    [string "return pluginsConfig['KeyValueStore'].logLeve..."]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].server':
+    [string "return pluginsConfig['KeyValueStore'].server"]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].port':
+    [string "return pluginsConfig['KeyValueStore'].port"]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].type':
+    [string "return pluginsConfig['KeyValueStore'].type"]:1: attempt to index a nil value (field 'KeyValueStore')
+
+Initializing ExecutionTracer
+WARNING: Cannot get configuration value 'pluginsConfig['ExecutionTracer'].logLevel':
+    [string "return pluginsConfig['ExecutionTracer'].logLe..."]:1: attempt to index a nil value (field 'ExecutionTracer')
+
+Initializing WebServiceInterface
+WARNING: Cannot get configuration value 'pluginsConfig['WebServiceInterface'].logLevel':
+    value of type nil can not be converted to string
+
+WebServiceInterface: SeedSearcher not present, seed statistics will not be available
+WebServiceInterface: Recipe plugin not present, recipe statistics will not be available
+Initializing Vmi
+WARNING: Cannot get configuration value 'pluginsConfig['Vmi'].logLevel':
+    value of type nil can not be converted to string
+
+Vmi: adding path /home/jshao/document/docker_s2e/ns3sym/projects/demo
+Vmi: adding path /home/jshao/document/docker_s2e/ns3sym/images/debian-9.2.1-i386/guestfs
+Initializing HostFiles
+WARNING: Cannot get configuration value 'pluginsConfig['HostFiles'].logLevel':
+    value of type nil can not be converted to string
+
+Initializing BaseInstructions
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].logLevel':
+    [string "return pluginsConfig['BaseInstructions'].logL..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].restrict':
+    [string "return pluginsConfig['BaseInstructions'].rest..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+Initializing LinuxMonitor
+WARNING: Cannot get configuration value 'pluginsConfig['LinuxMonitor'].logLevel':
+    value of type nil can not be converted to string
+
+Initializing ModuleMap
+Initializing ProcessExecutionDetector
+WARNING: Cannot get configuration value 'pluginsConfig['ProcessExecutionDetector'].logLevel':
+    value of type nil can not be converted to string
+
+ProcessExecutionDetector: no modules configured
+Initializing MemoryMap
+Initializing MemUtils
+WARNING: Cannot get configuration value 'pluginsConfig['MemUtils'].logLevel':
+    [string "return pluginsConfig['MemUtils'].logLevel"]:1: attempt to index a nil value (field 'MemUtils')
+
+Initializing ModuleExecutionDetector
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleExecutionDetector'].trackExecution':
+    value of type nil can not be converted to boolean
+
+Initializing StaticFunctionModels
+WARNING: Cannot get configuration value 'pluginsConfig['StaticFunctionModels'].logLevel':
+    value of type nil can not be converted to string
+
+StaticFunctionModels: Model count: WARNING: Cannot get configuration value 'pluginsConfig['StaticFunctionModels'].count':
+    value of type nil can not be converted to integer
+
+0
+Initializing CUPASearcher
+MultiSearcher: Registering CUPASearcher
+MultiSearcher: Switching to CUPASearcher
+CUPASearcher: CUPASearcher is now active
+Initializing TranslationBlockCoverage
+WARNING: Cannot get configuration value 'pluginsConfig['TranslationBlockCoverage'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['TranslationBlockCoverage'].writeCoveragePeriod':
+    value of type nil can not be converted to integer
+
+Initializing ModuleTracer
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleTracer'].logLevel':
+    [string "return pluginsConfig['ModuleTracer'].logLevel..."]:1: attempt to index a nil value (field 'ModuleTracer')
+
+Initializing CorePlugin
+WARNING: Cannot get configuration value 'pluginsConfig['CorePlugin'].logLevel':
+    [string "return pluginsConfig['CorePlugin'].logLevel"]:1: attempt to index a nil value (field 'CorePlugin')
+
+2 [State 0] Created initial state
+Initializing periodic timer
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x40000000, hostAddr = 0x7f4e83e00000, isSharedConcrete=0, name=pc.ram)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x40000, hostAddr = 0x7f4e45200000, isSharedConcrete=1, name=pc.bios)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x20000, hostAddr = 0x7f4e44e00000, isSharedConcrete=1, name=pc.rom)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x1000000, hostAddr = 0x7f4e43c00000, isSharedConcrete=1, name=vga.vram)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x10000, hostAddr = 0x7f4e42a00000, isSharedConcrete=1, name=vga.rom)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x40000, hostAddr = 0x7f4e42800000, isSharedConcrete=1, name=e1000.rom)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x20000, hostAddr = 0x7f4e42400000, isSharedConcrete=1, name=/rom@etc/acpi/tables)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x1000, hostAddr = 0x7f4e42200000, isSharedConcrete=1, name=/rom@etc/table-loader)
+Adding memory block (startAddr = 0xffffffffffffffff, size = 0x1000, hostAddr = 0x7f4e42000000, isSharedConcrete=1, name=/rom@etc/acpi/rsdp)
+8 [State 0] HostFiles: opening bootstrap.sh
+8 [State 0] HostFiles: opening guest-tools32/s2ecmd
+9 [State 0] HostFiles: opening guest-tools32/s2eget
+9 [State 0] HostFiles: opening guest-tools32/s2eput
+9 [State 0] HostFiles: opening guest-tools32/s2e.so
+10 [State 0] LinuxMonitor: Received kernel init page_offset=0xc0000000 &current_task=0xc1d602dc task_struct.pid offset=820 task_struct.tgid offset=824
+10 [State 0] LinuxMonitor: Kernel is at address 0xc1000000
+Vmi: Loading module from disk  (vmlinux)
+Vmi: Attempting to load binary file: /home/jshao/document/docker_s2e/ns3sym/images/debian-9.2.1-i386/guestfs/vmlinux
+11 [State 0] LinuxMonitor: munmap pid=0x4f6 start=0xb7726000 end=0xb7727000
+11 [State 0] LinuxMonitor: munmap pid=0x4f6 start=0xb7729000 end=0xb772a000
+11 [State 0] LinuxMonitor: munmap pid=0x4f6 start=0xb7728000 end=0xb7729000
+11 [State 0] LinuxMonitor: munmap pid=0x4f6 start=0xb7727000 end=0xb7728000
+11 [State 0] LinuxMonitor: munmap pid=0x4f6 start=0xb7569000 end=0xb756d000
+11 [State 0] LinuxMonitor: Removing task (pid=0x4f6, cr3=0x1cf5000, exitCode=0).
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb722c000 end=0xb7249000
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb71fa000 end=0xb722c000
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb776a000 end=0xb776d000
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb72fd000 end=0xb7300000
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb71b3000 end=0xb71fa000
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb71a0000 end=0xb71a5000
+11 [State 0] LinuxMonitor: munmap pid=0x4f4 start=0xb7182000 end=0xb71a0000
+11 [State 0] LinuxMonitor: Removing task (pid=0x4f4, cr3=0x1cf5000, exitCode=0).
+11 [State 0] LinuxMonitor: Process /usr/bin/env loaded pid=0x4f8
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0x80064000 size=0x9000 prot=0x5 flag=0x1802 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x8006b000 end=0x8006d000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0x8006b000 size=0x2000 prot=0x3 flag=0x1812 pgoff=0x6
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb771a000 size=0x25000 prot=0x5 flag=0x802 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb773d000 end=0xb773f000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb773d000 size=0x2000 prot=0x3 flag=0x812 pgoff=0x22
+11 [State 0] BaseInstructions: Message from guest (0xf54adb00): elf_interpreter=/lib/ld-linux.so.2 interp_map_addr=b771a000 elf_entry=0xb771a000 interp_load_addr=0xb771a000
+11 [State 0] LinuxMonitor: ModuleDescriptor Name=ld-linux.so.2 Path=/lib/ld-linux.so.2 Size=0x23478 AddressSpace=0x3551a000 Pid=0x4f8 EntryPoint=0xa20 Checksum=0x0
+11 [State 0] LinuxMonitor: ModuleDescriptor Name=env Path=/usr/bin/env Size=0x70d0 AddressSpace=0x3551a000 Pid=0x4f8 EntryPoint=0x80065482 Checksum=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7715000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7710000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7558000 size=0x1b79fc prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb7709000 size=0x1000 prot=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb770a000 end=0xb770d000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb770a000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x1b1
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb770d000 end=0xb7710000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb770d000 size=0x29fc prot=0x3 flag=0x32 pgoff=0x0
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb770a000 size=0x2000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0x8006b000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb773d000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7710000 end=0xb7715000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb73bd000 size=0x19a1a0 prot=0x1 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7714000 size=0x1000 prot=0x1 flag=0x2 pgoff=0x19a
+11 [State 0] LinuxMonitor: Process /usr/bin/python3 loaded pid=0x4f8
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0x800bb000 size=0x4cc000 prot=0x5 flag=0x1802 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x804ea000 end=0x80587000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0x804eb000 size=0x7a000 prot=0x3 flag=0x1812 pgoff=0x42f
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7729000 size=0x25000 prot=0x5 flag=0x802 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb774c000 end=0xb774e000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb774c000 size=0x2000 prot=0x3 flag=0x812 pgoff=0x22
+11 [State 0] BaseInstructions: Message from guest (0xf54adbbc): elf_interpreter=/lib/ld-linux.so.2 interp_map_addr=b7729000 elf_entry=0xb7729000 interp_load_addr=0xb7729000
+11 [State 0] LinuxMonitor: ModuleDescriptor Name=ld-linux.so.2 Path=/lib/ld-linux.so.2 Size=0x23478 AddressSpace=0x35500000 Pid=0x4f8 EntryPoint=0xa20 Checksum=0x0
+11 [State 0] LinuxMonitor: ModuleDescriptor Name=python3 Path=/usr/bin/python3 Size=0x4a7d74 AddressSpace=0x35500000 Pid=0x4f8 EntryPoint=0x802ae15e Checksum=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7724000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb771f000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7702000 size=0x1c260 prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb771b000 end=0xb771d000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb771b000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x18
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb771d000 end=0xb771f000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb771d000 size=0x1260 prot=0x3 flag=0x32 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76fd000 size=0x4068 prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7700000 end=0xb7702000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7700000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x2
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76f9000 size=0x3084 prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb76fb000 end=0xb76fd000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76fb000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x1
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76cf000 size=0x29034 prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb76f6000 end=0xb76f9000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76f6000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x26
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76b4000 size=0x1a100 prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb76cd000 end=0xb76cf000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76cd000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x18
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb765f000 size=0x54050 prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb76b2000 end=0xb76b4000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb76b2000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x52
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb74a7000 size=0x1b79fc prot=0x5 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb7658000 size=0x1000 prot=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7659000 end=0xb765c000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7659000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x1b1
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb765c000 end=0xb765f000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb765c000 size=0x29fc prot=0x3 flag=0x32 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb74a5000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb7659000 size=0x2000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb76b2000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb76cd000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb76f6000 size=0x2000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb76fb000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb7700000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb771b000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0x804eb000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb774c000 size=0x1000 prot=0x1
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb771f000 end=0xb7724000
+11 [State 0] LinuxMonitor: munmap pid=0x4f5 start=0x8101a000 end=0x8111a000
+11 [State 0] LinuxMonitor: munmap pid=0x4f7 start=0xb6c15000 end=0xb7422000
+11 [State 0] LinuxMonitor: munmap pid=0x4f7 start=0xb7753000 end=0xb7754000
+11 [State 0] LinuxMonitor: munmap pid=0x4f7 start=0xb7752000 end=0xb7753000
+11 [State 0] LinuxMonitor: munmap pid=0x4f7 start=0xb7751000 end=0xb7752000
+11 [State 0] LinuxMonitor: munmap pid=0x4f7 start=0xb6c11000 end=0xb6c15000
+11 [State 0] LinuxMonitor: munmap pid=0x4f5 start=0xb6c15000 end=0xb7422000
+11 [State 0] LinuxMonitor: munmap pid=0x4f5 start=0xb7753000 end=0xb7754000
+11 [State 0] LinuxMonitor: munmap pid=0x4f5 start=0xb7752000 end=0xb7753000
+11 [State 0] LinuxMonitor: munmap pid=0x4f5 start=0xb7751000 end=0xb7752000
+11 [State 0] LinuxMonitor: munmap pid=0x4f5 start=0xb6c11000 end=0xb6c15000
+11 [State 0] LinuxMonitor: Removing task (pid=0x4f7, cr3=0x35fb0000, exitCode=0).
+11 [State 0] LinuxMonitor: Removing task (pid=0x4f5, cr3=0x35500000, exitCode=0).
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb730a000 size=0x19a1a0 prot=0x1 flag=0x2 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7723000 size=0x1000 prot=0x1 flag=0x2 pgoff=0x19a
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7303000 size=0x6690 prot=0x1 flag=0x1 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb72c3000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7283000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7243000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7203000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x8120b000 end=0x8121a000
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x8122b000 end=0x81234000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb71c3000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7192000 size=0x31000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb71b6000 end=0xb71c3000
+11 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb716e000 size=0x24000 prot=0x3 flag=0x22 pgoff=0x0
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7192000 end=0xb71b6000
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb716e000 end=0xb7192000
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x8126d000 end=0x81295000
+11 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x81238000 end=0x8128f000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7183000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7183000 end=0xb71c3000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7183000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7720000 size=0x2118 prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7721000 end=0xb7723000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7721000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x0
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb7721000 size=0x1000 prot=0x1
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7143000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7143000 end=0xb7183000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7143000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7112000 size=0x31000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70d2000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70cc000 size=0x5b0c prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70d0000 end=0xb70d2000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70d0000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x3
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70c7000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70b5000 size=0x11ce4 prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70c5000 end=0xb70c7000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70c5000 size=0x2000 prot=0x3 flag=0x12 pgoff=0xf
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb70c5000 size=0x1000 prot=0x1
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb70d0000 size=0x1000 prot=0x1
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70c7000 end=0xb70cc000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70ab000 size=0x9614 prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70b2000 end=0xb70b5000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70b2000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x6
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70c7000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb707f000 size=0x2b148 prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70a9000 end=0xb70ab000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70a9000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x29
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb70a9000 size=0x1000 prot=0x1
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb70b2000 size=0x1000 prot=0x1
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70c7000 end=0xb70cc000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb703f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6fff000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6ff8000 size=0x683c prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6ffd000 end=0xb6fff000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6ffd000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x4
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70c7000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6f89000 size=0x6ec94 prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6ff1000 end=0xb6ff8000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6ff1000 size=0x7000 prot=0x3 flag=0x12 pgoff=0x67
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6d1a000 size=0x26eee8 prot=0x5 flag=0x2 pgoff=0x0
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb6f6d000 size=0x1000 prot=0x0
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6f6e000 end=0xb6f86000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6f6e000 size=0x18000 prot=0x3 flag=0x12 pgoff=0x253
+12 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6f86000 end=0xb6f89000
+12 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6f86000 size=0x2ee8 prot=0x3 flag=0x32 pgoff=0x0
+12 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb6f6e000 size=0x11000 prot=0x1
+13 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb6ff1000 size=0x3000 prot=0x1
+13 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb6ffd000 size=0x1000 prot=0x1
+13 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb70c7000 end=0xb70cc000
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6cf5000 size=0x24398 prot=0x5 flag=0x2 pgoff=0x0
+13 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6d16000 end=0xb6d1a000
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6d16000 size=0x4000 prot=0x3 flag=0x12 pgoff=0x20
+13 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb6d16000 size=0x1000 prot=0x1
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb771f000 size=0x1000 prot=0x5 flag=0x1 pgoff=0x0
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb70cb000 size=0x1000 prot=0x3 flag=0x1 pgoff=0x0
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6cef000 size=0x519c prot=0x5 flag=0x2 pgoff=0x0
+13 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6cf2000 end=0xb6cf5000
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6cf2000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x2
+13 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb6cf2000 size=0x1000 prot=0x1
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6caf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+13 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6caf000 end=0xb6cef000
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6caf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+13 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6caf000 end=0xb6cef000
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6caf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+13 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6c6f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6c2f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6bef000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6baf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6b6f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6b2f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6aef000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6aaf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6a6f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+14 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6aaf000 end=0xb6aef000
+14 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6aef000 end=0xb6b2f000
+14 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6b2f000 end=0xb6b6f000
+14 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6b6f000 end=0xb6baf000
+14 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6baf000 end=0xb6bef000
+15 [State 0] LinuxMonitor: Process /usr/bin/file loaded pid=0x4f9
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0x800e8000 size=0x6000 prot=0x5 flag=0x1802 pgoff=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0x800ec000 end=0x800ee000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0x800ec000 size=0x2000 prot=0x3 flag=0x1812 pgoff=0x3
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb7700000 size=0x25000 prot=0x5 flag=0x802 pgoff=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb7723000 end=0xb7725000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb7723000 size=0x2000 prot=0x3 flag=0x812 pgoff=0x22
+15 [State 0] BaseInstructions: Message from guest (0xf5687bbc): elf_interpreter=/lib/ld-linux.so.2 interp_map_addr=b7700000 elf_entry=0xb7700000 interp_load_addr=0xb7700000
+15 [State 0] LinuxMonitor: ModuleDescriptor Name=ld-linux.so.2 Path=/lib/ld-linux.so.2 Size=0x23478 AddressSpace=0x3568f000 Pid=0x4f9 EntryPoint=0xa20 Checksum=0x0
+15 [State 0] LinuxMonitor: ModuleDescriptor Name=file Path=/usr/bin/file Size=0x39fc AddressSpace=0x3568f000 Pid=0x4f9 EntryPoint=0x800e9916 Checksum=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76fb000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76f6000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76cf000 size=0x26244 prot=0x5 flag=0x2 pgoff=0x0
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb76f3000 size=0x1000 prot=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb76f4000 end=0xb76f6000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76f4000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x24
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76b4000 size=0x1a100 prot=0x5 flag=0x2 pgoff=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb76cd000 end=0xb76cf000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76cd000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x18
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb74fc000 size=0x1b79fc prot=0x5 flag=0x2 pgoff=0x0
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb76ad000 size=0x1000 prot=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb76ae000 end=0xb76b1000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76ae000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x1b1
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb76b1000 end=0xb76b4000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76b1000 size=0x29fc prot=0x3 flag=0x32 pgoff=0x0
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb76ae000 size=0x2000 prot=0x1
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb76cd000 size=0x1000 prot=0x1
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb76f4000 size=0x1000 prot=0x1
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0x800ec000 size=0x1000 prot=0x1
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb7723000 size=0x1000 prot=0x1
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb76f6000 end=0xb76fb000
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb7361000 size=0x19a1a0 prot=0x1 flag=0x2 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb76fa000 size=0x1000 prot=0x1 flag=0x2 pgoff=0x19a
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb6eb8000 size=0x4a8690 prot=0x3 flag=0x2 pgoff=0x0
+15 [State 0] LinuxMonitor: mprotect pid=0x4f9 start=0xb6eb8000 size=0x4a8690 prot=0x1
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb6eb1000 size=0x6690 prot=0x1 flag=0x1 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb6db0000 size=0x101000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb69af000 size=0x401000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f9 addr=0xb68ae000 size=0x101000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb68ae000 end=0xb69af000
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb69af000 end=0xb6db0000
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb6db0000 end=0xb6eb1000
+15 [State 0] LinuxMonitor: munmap pid=0x4f9 start=0xb6eb8000 end=0xb7361000
+15 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6baf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: Removing task (pid=0x4f9, cr3=0x35500000, exitCode=0).
+15 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6b6f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6b2f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6aef000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6b2f000 end=0xb6b6f000
+15 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6a0e000 size=0x61000 prot=0x3 flag=0x22 pgoff=0x0
+15 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7112000 end=0xb7143000
+15 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6b2f000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: Process /usr/bin/python3 loaded pid=0x4fa
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0x80077000 size=0x4cc000 prot=0x5 flag=0x1802 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0x804a6000 end=0x80543000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0x804a7000 size=0x7a000 prot=0x3 flag=0x1812 pgoff=0x42f
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb778d000 size=0x25000 prot=0x5 flag=0x802 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb77b0000 end=0xb77b2000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb77b0000 size=0x2000 prot=0x3 flag=0x812 pgoff=0x22
+16 [State 0] BaseInstructions: Message from guest (0xf5687bbc): elf_interpreter=/lib/ld-linux.so.2 interp_map_addr=b778d000 elf_entry=0xb778d000 interp_load_addr=0xb778d000
+16 [State 0] LinuxMonitor: ModuleDescriptor Name=ld-linux.so.2 Path=/lib/ld-linux.so.2 Size=0x23478 AddressSpace=0x3569d000 Pid=0x4fa EntryPoint=0xa20 Checksum=0x0
+16 [State 0] LinuxMonitor: ModuleDescriptor Name=python3 Path=/usr/bin/python3 Size=0x4a7d74 AddressSpace=0x3569d000 Pid=0x4fa EntryPoint=0x8026a15e Checksum=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7788000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7783000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7766000 size=0x1c260 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb777f000 end=0xb7781000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb777f000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x18
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb7781000 end=0xb7783000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7781000 size=0x1260 prot=0x3 flag=0x32 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7761000 size=0x4068 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb7764000 end=0xb7766000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7764000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x2
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb775d000 size=0x3084 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb775f000 end=0xb7761000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb775f000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x1
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7733000 size=0x29034 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb775a000 end=0xb775d000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb775a000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x26
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7718000 size=0x1a100 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb7731000 end=0xb7733000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7731000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x18
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb76c3000 size=0x54050 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb7716000 end=0xb7718000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7716000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x52
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb750b000 size=0x1b79fc prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb76bc000 size=0x1000 prot=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb76bd000 end=0xb76c0000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb76bd000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x1b1
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb76c0000 end=0xb76c3000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb76c0000 size=0x29fc prot=0x3 flag=0x32 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7509000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb76bd000 size=0x2000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb7716000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb7731000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb775a000 size=0x2000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb775f000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb7764000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb777f000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0x804a7000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mprotect pid=0x4fa start=0xb77b0000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb7783000 end=0xb7788000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb736e000 size=0x19a1a0 prot=0x1 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7787000 size=0x1000 prot=0x1 flag=0x2 pgoff=0x19a
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7367000 size=0x6690 prot=0x1 flag=0x1 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7327000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb72e7000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb72a7000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7133000 size=0xf844 prot=0x5 flag=0x2 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb7141000 end=0xb7143000
+16 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb7141000 size=0x2000 prot=0x3 flag=0x12 pgoff=0xd
+16 [State 0] LinuxMonitor: mprotect pid=0x4f8 start=0xb7141000 size=0x1000 prot=0x1
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7267000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7227000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb691b000 size=0xf3000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0x81e26000 end=0x81e2c000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb71e7000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+16 [State 0] LinuxMonitor: munmap pid=0x4fa start=0xb71e7000 end=0xb7227000
+16 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb71e7000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6aaf000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb68db000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb689b000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: munmap pid=0x4fa start=0x81e3c000 end=0x81e48000
+17 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb71a7000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb685b000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4fa addr=0xb7176000 size=0x31000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: munmap pid=0x4fa start=0x81e57000 end=0x81e60000
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb681b000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb67da000 size=0x41000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb679a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb67da000 end=0xb681b000
+17 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb691b000 end=0xb6a0e000
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb69ce000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb69ce000 end=0xb6a0e000
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb69ce000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb69ce000 end=0xb6a0e000
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb69ce000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+17 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb69ce000 end=0xb6a0e000
+17 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb69ce000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+18 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb698e000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+19 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb694e000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+19 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb67db000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+20 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb675a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+22 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb671a000 end=0xb675a000
+22 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb671a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+23 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb66da000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+23 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+23 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb66da000 end=0xb671a000
+23 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+24 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb66da000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb669a000 end=0xb66da000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb669a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb6624000 size=0x76000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb65ae000 size=0x76000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb6624000 end=0xb669a000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb665a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb656e000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb65ae000 end=0xb6624000
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb661a000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: mmap pid=0x4f8 addr=0xb65da000 size=0x40000 prot=0x3 flag=0x22 pgoff=0x0
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb65da000 end=0xb661a000
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0xb661a000 end=0xb665a000
+29 [State 0] LinuxMonitor: munmap pid=0x4f8 start=0x8173f000 end=0x81838000
+30 [State 0] LinuxMonitor: Process /home/s2e/ns-3-dev/build/scratch/symDemo loaded pid=0x4fb
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0x8006c000 size=0x17000 prot=0x5 flag=0x1802 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0x80080000 end=0x80083000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0x80081000 size=0x2000 prot=0x3 flag=0x1812 pgoff=0x14
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb76e6000 size=0x25000 prot=0x5 flag=0x802 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb7709000 end=0xb770b000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb7709000 size=0x2000 prot=0x3 flag=0x812 pgoff=0x22
+30 [State 0] BaseInstructions: Message from guest (0xf54afbbc): elf_interpreter=/lib/ld-linux.so.2 interp_map_addr=b76e6000 elf_entry=0xb76e6000 interp_load_addr=0xb76e6000
+30 [State 0] LinuxMonitor: ModuleDescriptor Name=ld-linux.so.2 Path=/lib/ld-linux.so.2 Size=0x23478 AddressSpace=0x35419000 Pid=0x4fb EntryPoint=0xa20 Checksum=0x0
+30 [State 0] LinuxMonitor: ModuleDescriptor Name=symDemo Path=/home/s2e/ns-3-dev/build/scratch/symDemo Size=0x1432b AddressSpace=0x35419000 Pid=0x4fb EntryPoint=0x800757a0 Checksum=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb76e1000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb7601000 size=0xdf68c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb76dc000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb76dd000 end=0xb76e1000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb76dd000 size=0x4000 prot=0x3 flag=0x12 pgoff=0xdb
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb75fe000 size=0x2014 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb75ff000 end=0xb7601000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb75ff000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb73d9000 size=0x224718 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb75f6000 end=0xb75fd000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb75f6000 size=0x7000 prot=0x3 flag=0x12 pgoff=0x21c
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb75fd000 end=0xb75fe000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb75fd000 size=0x718 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb720c000 size=0x1cc0ec prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb73d0000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb73d1000 end=0xb73d8000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb73d1000 size=0x7000 prot=0x3 flag=0x12 pgoff=0x1c4
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb73d8000 end=0xb73d9000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb73d8000 size=0xec prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb712d000 size=0xde578 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb7208000 end=0xb720c000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb7208000 size=0x4000 prot=0x3 flag=0x12 pgoff=0xda
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb7000000 size=0x12c99c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb7127000 end=0xb712c000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb7127000 size=0x5000 prot=0x3 flag=0x12 pgoff=0x126
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb712c000 end=0xb712d000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb712c000 size=0x99c prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb6935000 size=0x6ca6d8 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb6fe7000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb6fe8000 end=0xb6ffd000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb6fe8000 size=0x15000 prot=0x3 flag=0x12 pgoff=0x6b2
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb6ffd000 end=0xb7000000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb6ffd000 size=0x26d8 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb67fc000 size=0x1382fc prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb692e000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb692f000 end=0xb6934000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb692f000 size=0x5000 prot=0x3 flag=0x12 pgoff=0x132
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb6934000 end=0xb6935000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb6934000 size=0x2fc prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5a3d000 size=0xdbe028 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb67cd000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb67ce000 end=0xb67f8000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb67ce000 size=0x2a000 prot=0x3 flag=0x12 pgoff=0xd90
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb67f8000 end=0xb67fc000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb67f8000 size=0x3028 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5a3b000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb581e000 size=0x21ccd8 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5a32000 end=0xb5a3a000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5a32000 size=0x8000 prot=0x3 flag=0x12 pgoff=0x213
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5a3a000 end=0xb5a3b000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5a3a000 size=0xcd8 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb57f7000 size=0x26828 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb581c000 end=0xb581e000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb581c000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x24
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5634000 size=0x1c2f78 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb57ef000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb57f0000 end=0xb57f7000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb57f0000 size=0x7000 prot=0x3 flag=0x12 pgoff=0x1bb
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5625000 size=0xe3d8 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5632000 end=0xb5634000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5632000 size=0x2000 prot=0x3 flag=0x12 pgoff=0xc
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb55a9000 size=0x7b744 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5621000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5622000 end=0xb5625000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5622000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x78
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb54f1000 size=0xb7500 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb55a4000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb55a5000 end=0xb55a9000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb55a5000 size=0x4000 prot=0x3 flag=0x12 pgoff=0xb3
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb53f7000 size=0xf9e20 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb54eb000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb54ec000 end=0xb54f1000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb54ec000 size=0x5000 prot=0x3 flag=0x12 pgoff=0xf4
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5195000 size=0x26149c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb53ec000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb53ed000 end=0xb53f6000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb53ed000 size=0x9000 prot=0x3 flag=0x12 pgoff=0x257
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb53f6000 end=0xb53f7000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb53f6000 size=0x49c prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5155000 size=0x3fcbc prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5192000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5193000 end=0xb5195000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5193000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x3d
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb504e000 size=0x10615c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5150000 end=0xb5154000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5150000 size=0x4000 prot=0x3 flag=0x12 pgoff=0x101
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb5154000 end=0xb5155000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5154000 size=0x15c prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb504c000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb5020000 size=0x2ba98 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb504a000 end=0xb504c000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb504a000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x29
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4f7d000 size=0xa2c9c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb501d000 end=0xb5020000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb501d000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x9f
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4f32000 size=0x4ae38 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb4f7b000 end=0xb4f7d000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4f7b000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x48
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb46e0000 size=0x851fec prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb4f15000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb4f16000 end=0xb4f2f000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4f16000 size=0x19000 prot=0x3 flag=0x12 pgoff=0x835
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb4f2f000 end=0xb4f32000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4f2f000 size=0x2fec prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb46a7000 size=0x38d9c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb46de000 end=0xb46e0000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb46de000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x36
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4522000 size=0x184c1c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb46a0000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb46a1000 end=0xb46a7000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb46a1000 size=0x6000 prot=0x3 flag=0x12 pgoff=0x17e
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4473000 size=0xaee28 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb451e000 end=0xb4522000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb451e000 size=0x4000 prot=0x3 flag=0x12 pgoff=0xaa
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb43ad000 size=0xc5f8c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb446e000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb446f000 end=0xb4473000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb446f000 size=0x4000 prot=0x3 flag=0x12 pgoff=0xc1
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb41dd000 size=0x1cfd00 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb43a5000 end=0xb43ad000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb43a5000 size=0x8000 prot=0x3 flag=0x12 pgoff=0x1c7
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb40fa000 size=0xe253c prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb41d7000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb41d8000 end=0xb41dc000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb41d8000 size=0x4000 prot=0x3 flag=0x12 pgoff=0xdd
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb41dc000 end=0xb41dd000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb41dc000 size=0x53c prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb40f8000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4059000 size=0x9ecec prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb40f4000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb40f5000 end=0xb40f8000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb40f5000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x9b
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb402f000 size=0x29858 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb4057000 end=0xb4059000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb4057000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x27
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3fb8000 size=0x76500 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb402b000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb402c000 end=0xb402f000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb402c000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x73
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3f5a000 size=0x5d2d8 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3fb5000 end=0xb3fb7000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3fb5000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x5a
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3fb7000 end=0xb3fb8000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3fb7000 size=0x2d8 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3f3a000 size=0x1f630 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3f58000 end=0xb3f5a000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3f58000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x1d
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3ec5000 size=0x744a0 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3f37000 end=0xb3f39000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3f37000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x71
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3f39000 end=0xb3f3a000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3f39000 size=0x4a0 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3e90000 size=0x34bb8 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3ec2000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3ec3000 end=0xb3ec5000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3ec3000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x32
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3bcb000 size=0x2c4e58 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3e83000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3e84000 end=0xb3e8e000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3e84000 size=0xa000 prot=0x3 flag=0x12 pgoff=0x2b8
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3e8e000 end=0xb3e90000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3e8e000 size=0x1e58 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3acd000 size=0xfdfd8 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3bc6000 end=0xb3bcb000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3bc6000 size=0x5000 prot=0x3 flag=0x12 pgoff=0xf8
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb388c000 size=0x240458 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3abc000 end=0xb3ac4000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3abc000 size=0x8000 prot=0x3 flag=0x12 pgoff=0x22f
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3ac4000 end=0xb3acd000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3ac4000 size=0x8458 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3887000 size=0x4d0b prot=0x1 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3885000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb387c000 size=0x8218 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3883000 end=0xb3885000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3883000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x6
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3702000 size=0x179178 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3872000 end=0xb3879000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3872000 size=0x7000 prot=0x3 flag=0x12 pgoff=0x16f
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3879000 end=0xb387c000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3879000 size=0x2178 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb36ad000 size=0x54050 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3700000 end=0xb3702000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3700000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x52
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb368f000 size=0x1d254 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb36ab000 end=0xb36ad000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb36ab000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x1b
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb3672000 size=0x1c260 prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb368b000 end=0xb368d000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb368b000 size=0x2000 prot=0x3 flag=0x12 pgoff=0x18
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb368d000 end=0xb368f000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb368d000 size=0x1260 prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34ba000 size=0x1b79fc prot=0x5 flag=0x2 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb366b000 size=0x1000 prot=0x0
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb366c000 end=0xb366f000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb366c000 size=0x3000 prot=0x3 flag=0x12 pgoff=0x1b1
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb366f000 end=0xb3672000
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb366f000 size=0x29fc prot=0x3 flag=0x32 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34b8000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34b6000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb366c000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb368b000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb36ab000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3700000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34b4000 size=0x2000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3872000 size=0x6000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3883000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3abc000 size=0x3000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3bc6000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3e84000 size=0x4000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3ec3000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3f37000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3f58000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb3fb5000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb402c000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34b1000 size=0x3000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb4057000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb40f5000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb41d8000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb43a5000 size=0x3000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb446f000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb451e000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb46a1000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb46de000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34ac000 size=0x5000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb4f16000 size=0x9000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb4f7b000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb501d000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb504a000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5150000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5193000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb53ed000 size=0x3000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb54ec000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb55a5000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5622000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5632000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb57f0000 size=0x3000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb581c000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb5a32000 size=0x3000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb67ce000 size=0xc000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb692f000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mmap pid=0x4fb addr=0xb34a3000 size=0x9000 prot=0x3 flag=0x22 pgoff=0x0
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb6fe8000 size=0x8000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb7127000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb7208000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb73d1000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb75f6000 size=0x2000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb75ff000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb76dd000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0x80081000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: mprotect pid=0x4fb start=0xb7709000 size=0x1000 prot=0x1
+30 [State 0] LinuxMonitor: munmap pid=0x4fb start=0xb3887000 end=0xb388c000
+35 [State 0] BaseInstructions: Inserted symbolic data @0xbfecc02c of size 0x4: m_delayinit='\x00\x00\x00\x00' pc=0xb3f1279c
+35 [State 0] Forking state 0 at pc = 0xb765db37 at pagedir = 0x35419000
+    state 0
+    state 1
+35 [State 0] BaseInstructions: Killing state 0
+35 [State 0] Terminating state: State was terminated by opcode
+            message: "Out of Range, Lower"
+            status: 0x0
+35 [State 0] TestCaseGenerator: generating test case at address 0xb3f127cb
+35 [State 0] TestCaseGenerator:     v0_m_delayinit_0 = {0x0, 0x0, 0x0, 0x0}; (int32_t) 0, (string) "...."
+36 [State 0] Switching from state 0 to state 1
+36 [State 1] Forking state 1 at pc = 0xb76a8842 at pagedir = 0x35419000
+    state 1
+    state 2
+36 [State 1] BaseInstructions: Killing state 1
+36 [State 1] Terminating state: State was terminated by opcode
+            message: "Out of Range, Upper"
+            status: 0x0
+36 [State 1] TestCaseGenerator: generating test case at address 0xb3f127cb
+36 [State 1] TestCaseGenerator:     v0_m_delayinit_0 = {0x0, 0x0, 0x0, 0x80}; (int32_t) -2147483648, (string) "...."
+36 [State 1] Switching from state 1 to state 2
+36 [State 2] BaseInstructions: Inserted symbolic data @0xbfecc02c of size 0x4: m_delayinit='\x00\x00\x00\x00' pc=0xb3f1279c
+36 [State 2] Forking state 2 at pc = 0xb765db37 at pagedir = 0x35419000
+    state 2
+    state 3
+36 [State 2] BaseInstructions: Killing state 2
+36 [State 2] Terminating state: State was terminated by opcode
+            message: "Out of Range, Lower"
+            status: 0x0
+36 [State 2] TestCaseGenerator: generating test case at address 0xb3f127cb
+36 [State 2] TestCaseGenerator:     v0_m_delayinit_0 = {0xe9, 0x1, 0x0, 0x0}; (int32_t) 489, (string) "...."
+    v1_m_delayinit_1 = {0x0, 0x0, 0x0, 0x0}; (int32_t) 0, (string) "...."
+36 [State 2] Switching from state 2 to state 3
+36 [State 3] Forking state 3 at pc = 0xb76a8842 at pagedir = 0x35419000
+    state 3
+    state 4
+36 [State 3] BaseInstructions: Killing state 3
+36 [State 3] Terminating state: State was terminated by opcode
+            message: "Out of Range, Upper"
+            status: 0x0
+36 [State 3] TestCaseGenerator: generating test case at address 0xb3f127cb
+36 [State 3] TestCaseGenerator:     v0_m_delayinit_0 = {0xec, 0x1, 0x0, 0x0}; (int32_t) 492, (string) "...."
+    v1_m_delayinit_1 = {0x0, 0x0, 0x0, 0x80}; (int32_t) -2147483648, (string) "...."
+36 [State 3] Switching from state 3 to state 4
+36 [State 4] Forking state 4 at pc = 0xb396cde2 at pagedir = 0x35419000
+    state 4
+    state 5
+36 [State 4] Forking state 4 at pc = 0xb396ce15 at pagedir = 0x35419000
+    state 6
+    state 4
+37 [State 4] BaseInstructions: BaseInstructions: range 0x0 to 0x0
+37 [State 4] BaseInstructions: Killing state 4
+37 [State 4] Terminating state: State was terminated by opcode
+            message: "The Range of diff is 0,0"
+            status: 0x0
+37 [State 4] TestCaseGenerator: generating test case at address 0xb573388d
+37 [State 4] TestCaseGenerator:     v0_m_delayinit_0 = {0xec, 0x1, 0x0, 0x0}; (int32_t) 492, (string) "...."
+    v1_m_delayinit_1 = {0xec, 0x1, 0x0, 0x0}; (int32_t) 492, (string) "...."
+37 [State 4] Switching from state 4 to state 5
+37 [State 5] BaseInstructions: BaseInstructions: range 0x1 to 0x3e7
+37 [State 5] BaseInstructions: Killing state 5
+37 [State 5] Terminating state: State was terminated by opcode
+            message: "The Range of diff is 1,999"
+            status: 0x0
+37 [State 5] TestCaseGenerator: generating test case at address 0xb573388d
+37 [State 5] TestCaseGenerator:     v0_m_delayinit_0 = {0xee, 0x1, 0x0, 0x0}; (int32_t) 494, (string) "...."
+    v1_m_delayinit_1 = {0xe9, 0x1, 0x0, 0x0}; (int32_t) 489, (string) "...."
+37 [State 5] Switching from state 5 to state 6
+38 [State 6] BaseInstructions: BaseInstructions: range 0xfffffc19 to 0xffffffff
+38 [State 6] BaseInstructions: Killing state 6
+38 [State 6] Terminating state: State was terminated by opcode
+            message: "The Range of diff is -999,-1"
+            status: 0x0
+38 [State 6] TestCaseGenerator: generating test case at address 0xb573388d
+38 [State 6] TestCaseGenerator:     v0_m_delayinit_0 = {0xec, 0x1, 0x0, 0x0}; (int32_t) 492, (string) "...."
+    v1_m_delayinit_1 = {0xef, 0x1, 0x0, 0x0}; (int32_t) 495, (string) "...."
+All states were terminated
+Terminating node id 0 (instance slot 0)
+Engine terminated.
