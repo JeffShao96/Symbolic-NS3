@@ -167,7 +167,7 @@ To find the range of the difference between the arrival times of two packets usi
 ...
 ```
 
-In addition, we modify NS-3 file [udp-server.cc](./src/applications/model/udp-server.cc) to keep track of the packet arrival times and then calculate and print out their difference.
+In addition, we modify NS-3 file [udp-server.cc](./ns-3-dev/src/applications/model/udp-server.cc) to keep track of the packet arrival times and then calculate and print out their difference.
 
 ## Symbolic NS-3 Code
 The current Symbolic NS-3 modifies two files in the original NS-3:
