@@ -21,13 +21,12 @@ We recommand using Ubuntu 18.04 LTS or 20.04 LTS or higher Ubuntu version for th
 You may have Linux installed via Vmware Workstation Player or Oracle VirtualBox.
 While setup your virtual machine, we recommand to allocate at least:
 * 1 vCPU
-* 2 GB RAM
-* 40 GB Hard Disk (SSD Disk is better)
+* 4 GB RAM
+* 80 GB Hard Disk (SSD Disk is better)
 
 We also recommand enable *Intel VT-x/AMD-v* for virtual machine, which enables KVM feature for guest system. Using KVM in this project would reduce building and running time.
 
-
-
+Some combinations of system version and virtualization tools may work fine on Windows, but we found that the combination of latest Vmware and Ubuntu LTS is the best approach.
 ### Build S2E with s2e-env
 We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run Symbolic NS-3.
 
