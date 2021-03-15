@@ -30,11 +30,9 @@
 #include "ns3/packet.h"
 #include "ns3/uinteger.h"
 #include "packet-loss-counter.h"
-#include "/home/s2e/s2e/s2e.h"
 
 #include "seq-ts-header.h"
 #include "udp-server.h"
-#include "fstream"
 
 namespace ns3 {
 
@@ -71,9 +69,8 @@ UdpServer::GetTypeId (void)
   return tid;
 }
 
-UdpServer::UdpServer () 
-: m_rcvtime (), 
-  m_lossCounter (0)
+UdpServer::UdpServer ()
+  : m_lossCounter (0)
 {
   NS_LOG_FUNCTION (this);
   m_received=0;
@@ -184,31 +181,13 @@ UdpServer::HandleRead (Ptr<Socket> socket)
           uint32_t currentSequenceNumber = seqTs.GetSeq ();
           if (InetSocketAddress::IsMatchingType (from))
             {
-              std::pair<uint64_t, Time> m_temprcvtime (packet->GetUid(), Simulator::Now ());
-              m_rcvtime.push_back (m_temprcvtime);
-              if(m_rcvtime.size()==2){
-                  std::pair<uint64_t, Time> secondp = m_rcvtime[0];
-                  std::pair<uint64_t, Time> firstp = m_rcvtime[1];
-                  int diff;
-                  if (secondp.first < firstp.first)
-                    {
-                      diff = (secondp.second - firstp.second).GetTimeStep ();
-                    }
-                  else
-                    {
-                      diff = (firstp.second - secondp.second).GetTimeStep ();
-                    }
-                  uintptr_t up;
-                  uintptr_t low;
-                  s2e_get_range(diff,&low,&up);
-                  s2e_kill_state_printf(0,"The Range of diff is %ld,%ld",low,up);
-                }
-              NS_LOG_INFO ("TraceDelay: RX " << packet->GetSize () << " bytes from "
-                                             << InetSocketAddress::ConvertFrom (from).GetIpv4 ()
-                                             << " Sequence Number: " << currentSequenceNumber
-                                             << " Uid: " << packet->GetUid () << " TXtime: "
-                                             << seqTs.GetTs () << " RXtime: " << Simulator::Now ()
-                                             << " Delay: " << Simulator::Now () - seqTs.GetTs ());
+              NS_LOG_INFO ("TraceDelay: RX " << packet->GetSize () <<
+                           " bytes from "<< InetSocketAddress::ConvertFrom (from).GetIpv4 () <<
+                           " Sequence Number: " << currentSequenceNumber <<
+                           " Uid: " << packet->GetUid () <<
+                           " TXtime: " << seqTs.GetTs () <<
+                           " RXtime: " << Simulator::Now () <<
+                           " Delay: " << Simulator::Now () - seqTs.GetTs ());
             }
           else if (Inet6SocketAddress::IsMatchingType (from))
             {
