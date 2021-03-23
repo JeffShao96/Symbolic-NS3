@@ -9,7 +9,7 @@
 #include "ns3/point-to-point-module.h"
 #include "ns3/applications-module.h"
 #include "/home/s2e/s2e/s2e.h"
-#include "ctime"
+#include "ns3/symbolic-module.h"
 
 //Network Topology
 //
@@ -42,17 +42,26 @@ main (int argc, char *argv[])
   nodeAdjacencyList[0] = NodeContainer (nodes.Get (0), nodes.Get (2));
   nodeAdjacencyList[1] = NodeContainer (nodes.Get (1), nodes.Get (2));
 
+  Ptr<Symbolic> symA = CreateObject<Symbolic>();
+  symA->SetAttribute("Min",UintegerValue(1));
+  // We have Muitlple way to set a Max or Min.
+  // symA->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
+  // symA->SetMin(1);
+  // symA->SetMin(Second(1));
+  // symA->SetMin(Time("1ms"));
+  symA->SetAttribute("Max",UintegerValue(1000));
+
+  Ptr<Symbolic> symB = CreateObject<Symbolic>();
+  symB->SetAttribute("Min",UintegerValue(1));
+  symB->SetAttribute("Max",UintegerValue(1000));
+
   std::vector<PointToPointHelper> pointToPoint (2);
   pointToPoint[0].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
-  pointToPoint[0].SetChannelAttribute ("SymbolicMode", BooleanValue (true));
-  pointToPoint[0].SetChannelAttribute ("DelayMin", TimeValue (Time("1ms")));
-  pointToPoint[0].SetChannelAttribute ("DelayMax", TimeValue (Time("1000ms")));
-
+  pointToPoint[0].SetChannelAttribute ("Symbolic", PointerValue (symA));
 
   pointToPoint[1].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
-  pointToPoint[1].SetChannelAttribute ("SymbolicMode", BooleanValue (true));
-  pointToPoint[1].SetChannelAttribute ("DelayMin", TimeValue (Time("1ms")));
-  pointToPoint[1].SetChannelAttribute ("DelayMax", TimeValue (Time("1000ms")));
+  pointToPoint[1].SetChannelAttribute ("Symbolic", PointerValue (symB));
+
 
   std::vector<NetDeviceContainer> devices (2);
   devices[0] = pointToPoint[0].Install (nodeAdjacencyList[0]);
@@ -97,7 +106,10 @@ main (int argc, char *argv[])
   sndb.Stop (Seconds (10.0));
 
   Simulator::Run ();
+  Symbolic symC =(Seconds(1.0)+*symA)  -(Seconds(1.0)+*symB);
+  symC.PrintRange("DIFF");
   Simulator::Destroy ();
+
   s2e_kill_state(0,"Program Terminated");
   return 0;
 }
