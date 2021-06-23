@@ -44,7 +44,7 @@ PointToPointChannel::GetTypeId (void)
                    MakeTimeAccessor (&PointToPointChannel::m_delay),
                    MakeTimeChecker ())
     #ifdef SYMBOLIC
-    .AddAttribute ("Symbolic", "Propagation delay through the channel",
+    .AddAttribute ("SymbolicDelay", "Propagation delay through the channel",
                    PointerValue (),
                    MakePointerAccessor (&PointToPointChannel::m_symbolicDelay),
                    MakePointerChecker<Symbolic>())
