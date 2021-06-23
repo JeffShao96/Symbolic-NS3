@@ -24,16 +24,25 @@ NS_LOG_COMPONENT_DEFINE ("SymNS3ScriptExample");
 int
 main (int argc, char *argv[])
 {
-
   Time::SetResolution (Time::MS); 
   
-  // No Log Infomation Allowed in this mode!
+  Ptr<Symbolic> sym1 = CreateObject<Symbolic>();
+  sym1->SetAttribute("Min",UintegerValue(1));
+  // We have Muitlple way to set a Max or Min.
+  // sym1->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
+  // sym1->SetMin(1);
+  // sym1->SetMin(Second(1));
+  // sym1->SetMin(Time("1ms"));
+  sym1->SetAttribute("Max",UintegerValue(1000));
 
-  // LogComponentEnable ("UdpServer", LOG_LEVEL_INFO);
-  // LogComponentEnable ("UdpClient", LOG_LEVEL_INFO);
+  Ptr<Symbolic> sym2 = CreateObject<Symbolic>();
+  sym2->SetAttribute("Min",UintegerValue(1));
+  sym2->SetAttribute("Max",UintegerValue(1000));
 
-  CommandLine cmd;
-  cmd.Parse (argc, argv);
+
+  std::vector<PointToPointHelper> pointToPoint (2);
+  pointToPoint[0].SetChannelAttribute ("SymbolicDelay", PointerValue (sym1));
+  pointToPoint[1].SetChannelAttribute ("SymbolicDelay", PointerValue (sym2));
 
   NodeContainer nodes;
   nodes.Create (3); 
@@ -41,27 +50,6 @@ main (int argc, char *argv[])
   std::vector<NodeContainer> nodeAdjacencyList (2);
   nodeAdjacencyList[0] = NodeContainer (nodes.Get (0), nodes.Get (2));
   nodeAdjacencyList[1] = NodeContainer (nodes.Get (1), nodes.Get (2));
-
-  Ptr<Symbolic> symA = CreateObject<Symbolic>();
-  symA->SetAttribute("Min",UintegerValue(1));
-  // We have Muitlple way to set a Max or Min.
-  // symA->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
-  // symA->SetMin(1);
-  // symA->SetMin(Second(1));
-  // symA->SetMin(Time("1ms"));
-  symA->SetAttribute("Max",UintegerValue(1000));
-
-  Ptr<Symbolic> symB = CreateObject<Symbolic>();
-  symB->SetAttribute("Min",UintegerValue(1));
-  symB->SetAttribute("Max",UintegerValue(1000));
-
-  std::vector<PointToPointHelper> pointToPoint (2);
-  pointToPoint[0].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
-  pointToPoint[0].SetChannelAttribute ("Symbolic", PointerValue (symA));
-
-  pointToPoint[1].SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
-  pointToPoint[1].SetChannelAttribute ("Symbolic", PointerValue (symB));
-
 
   std::vector<NetDeviceContainer> devices (2);
   devices[0] = pointToPoint[0].Install (nodeAdjacencyList[0]);
@@ -81,35 +69,28 @@ main (int argc, char *argv[])
           address.Assign (devices[i]); 
     }
 
-  UdpServerHelper server1 (2333);
+  UdpServerHelper server (2333);
 
-  ApplicationContainer rcv = server1.Install (nodes.Get (2));
+  ApplicationContainer rcv = server.Install (nodes.Get (2));
   rcv.Start (Seconds (1.0));
   rcv.Stop (Seconds (10.0));
 
-  UdpClientHelper client1 (interfaces[0].GetAddress (1), 2333);
-  client1.SetAttribute ("MaxPackets", UintegerValue (1));
-  client1.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
-  client1.SetAttribute ("PacketSize", UintegerValue (1024));
+  UdpClientHelper snd1 (interfaces[0].GetAddress (1), 2333);
+  snd1.SetAttribute ("MaxPackets", UintegerValue (1));
 
-  ApplicationContainer snda = client1.Install (nodes.Get (0));
-  snda.Start (Seconds (1.0));
-  snda.Stop (Seconds (10.0));
+  UdpClientHelper snd2 (interfaces[1].GetAddress (1), 2333);
+  snd2.SetAttribute ("MaxPackets", UintegerValue (1));
 
-  UdpClientHelper client2 (interfaces[1].GetAddress (1), 2333);
-  client2.SetAttribute ("MaxPackets", UintegerValue (1));
-  client2.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
-  client2.SetAttribute ("PacketSize", UintegerValue (1024));
-
-  ApplicationContainer sndb = client2.Install (nodes.Get (1));
-  sndb.Start (Seconds (1.0));
-  sndb.Stop (Seconds (10.0));
+  ApplicationContainer snd;
+  snd.Add(snd1.Install (nodes.Get (0)));
+  snd.Add(snd2.Install (nodes.Get (1)));
+  snd.Start (Seconds (1.0));
+  snd.Stop (Seconds (10.0));
 
   Simulator::Run ();
-  Symbolic symC =(Seconds(1.0)+*symA)  -(Seconds(1.0)+*symB);
-  symC.PrintRange("DIFF");
+  Symbolic Diff=sym1-sym2;
+  Diff.PrintRange("Diff");
   Simulator::Destroy ();
-
   s2e_kill_state(0,"Program Terminated");
   return 0;
 }
