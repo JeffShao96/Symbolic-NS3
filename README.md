@@ -107,7 +107,7 @@ Example:
 
 Set S2E permissions
 
-    sudo usermod -a -G docker $(whoami)
+    sudo usermod -a -G kvm $(whoami)
     sudo chmod ugo+r /boot/vmlinu*
     
 #### Build the image
