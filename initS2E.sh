@@ -27,5 +27,5 @@ wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubuserconte
 wget -O source/guest-images/images.json https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/images.json
 
 # Give the authority to S2E.
-sudo usermod -a -G docker $(whoami)
+sudo usermod -a -G kvm $(whoami)
 sudo chmod ugo+r /boot/vmlinu*
