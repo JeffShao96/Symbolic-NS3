@@ -97,7 +97,6 @@ private:
    */
   void HandleRead (Ptr<Socket> socket);
 
-  std::vector <std::pair<uint64_t,Time>> m_rcvtime;
   uint16_t m_port; //!< Port on which we listen for incoming packets.
   Ptr<Socket> m_socket; //!< IPv4 Socket
   Ptr<Socket> m_socket6; //!< IPv6 Socket

@@ -16,14 +16,15 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#define SYMBOLIC
+
 #include "point-to-point-channel.h"
 #include "point-to-point-net-device.h"
 #include "ns3/trace-source-accessor.h"
 #include "ns3/packet.h"
 #include "ns3/simulator.h"
 #include "ns3/log.h"
-#include "ns3/boolean.h"
-#include "/home/s2e/s2e/s2e.h"
+#include "ns3/pointer.h"
 
 namespace ns3 {
 
@@ -42,19 +43,19 @@ PointToPointChannel::GetTypeId (void)
                    TimeValue (Seconds (0)),
                    MakeTimeAccessor (&PointToPointChannel::m_delay),
                    MakeTimeChecker ())
-    .AddAttribute ("DelayMin", "Minimum value of the symbolic delay", TimeValue (Seconds (0)),
-                  MakeTimeAccessor (&PointToPointChannel::m_delaymin), MakeTimeChecker ())
-    .AddAttribute ("DelayMax", "Maximum value of the symbolic delay", TimeValue (Seconds (10)),
-                  MakeTimeAccessor (&PointToPointChannel::m_delaymax), MakeTimeChecker ())
-    .AddAttribute ("SymbolicMode", "Enable or disable the symbolic delay", BooleanValue (false),
-                  MakeBooleanAccessor (&PointToPointChannel::m_symbolicDelay),
-                  MakeBooleanChecker ())
+    #ifdef SYMBOLIC
+    .AddAttribute ("SymbolicDelay", "Propagation delay through the channel",
+                   PointerValue (),
+                   MakePointerAccessor (&PointToPointChannel::m_symbolicDelay),
+                   MakePointerChecker<Symbolic>())
+    #endif
     .AddTraceSource ("TxRxPointToPoint",
                      "Trace source indicating transmission of packet "
                      "from the PointToPointChannel, used by the Animation "
                      "interface.",
                      MakeTraceSourceAccessor (&PointToPointChannel::m_txrxPointToPoint),
                      "ns3::PointToPointChannel::TxRxAnimationCallback")
+
   ;
   return tid;
 }
@@ -66,10 +67,11 @@ PointToPointChannel::PointToPointChannel()
   :
     Channel (),
     m_delay (Seconds (0.)),
-    m_nDevices (0),
-    m_symbolicDelay (false),
-    m_delaymax (Seconds (0.)),
-    m_delaymin (Seconds (10.))
+    m_nDevices (0)
+    // #ifdef SYMBOLIC
+    // ,
+    // m_symbolicDelay()
+    // #endif
 {
   NS_LOG_FUNCTION_NOARGS ();
 }
@@ -108,23 +110,20 @@ PointToPointChannel::TransmitStart (
   NS_ASSERT (m_link[1].m_state != INITIALIZING);
 
   uint32_t wire = src == m_link[0].m_src ? 0 : 1;
-
-  if(m_symbolicDelay&&!m_isinitialized){
-    uintptr_t m_delayinit = 0;
-    s2e_make_symbolic(&m_delayinit,sizeof(m_delayinit),"m_delayinit");
-    m_delay = Time(m_delayinit);
-    if(m_delay<m_delaymin){
-      s2e_kill_state(0,"Out of Range, Lower");
-    }else if(m_delay>m_delaymax){
-      s2e_kill_state(0,"Out of Range, Upper");
-    }
-    m_isinitialized = true;
+  //if No point then we use the normal ns3
+  #ifdef SYMBOLIC
+  if(m_symbolicDelay>0)
+  {
+    m_delay = m_symbolicDelay->GetSymbolicTime();
   }
+  
+  #endif
 
   Simulator::ScheduleWithContext (m_link[wire].m_dst->GetNode ()->GetId (),
                                   txTime + m_delay, &PointToPointNetDevice::Receive,
                                   m_link[wire].m_dst, p->Copy ());
 
+  // Call the tx anim callback on the net device
   m_txrxPointToPoint (p, src, m_link[wire].m_dst, txTime, txTime + m_delay);
   return true;
 }
