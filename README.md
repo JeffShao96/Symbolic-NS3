@@ -16,17 +16,29 @@ Below is the instruction to download, install, and execute Symbolic NS-3.
 
 ## Instruction
 
+We recommand using Ubuntu 18.04 LTS or 20.04 LTS or higher Ubuntu version for this project. 
+### Tips for Windows users using Virtualization Tools
+You may have Linux installed via Vmware Workstation Player or Oracle VirtualBox.
+While setup your virtual machine, we recommand to allocate at least:
+* 1 vCPU
+* 4 GB RAM
+* 80 GB Hard Disk (SSD Disk is better)
+
+We also recommand enable *Intel VT-x/AMD-v* for virtual machine, which enables KVM feature for guest system. Using KVM in this project would reduce building and running time.
+
+Some combinations of system version and virtualization tools may work fine on Windows, but we found that the combination of latest Vmware and Ubuntu LTS is the best approach.
 ### Build S2E with s2e-env
 We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run Symbolic NS-3.
 
 We highly recommend to build S2E with s2e-env. However, you can manually build S2E as well. 
+#### Convenient Script
 We have written a shell file to build s2e. If successful, please skip to [Skip Point](#build-the-image).
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
 chmod +x initS2E.sh 
 ./initS2E.sh
 ```
-
+#### Manual Install Steps
 Install the packages for s2e-env
 
     sudo apt-get update
@@ -49,8 +61,8 @@ If you want to quit from the virtual environment, use the following command:
 
 Install the s2e-env
 
-    pip install .
     pip install --upgrade pip
+    pip install .
     
 **Note: if your pip version is earlier than v19, use the following command:**
 
@@ -107,6 +119,7 @@ Example:
 
 Set S2E permissions
 
+    sudo usermod -a -G docker $(whoami)
     sudo usermod -a -G kvm $(whoami)
     sudo chmod ugo+r /boot/vmlinu*
     
