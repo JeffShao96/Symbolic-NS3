@@ -68,6 +68,13 @@ Symbolic::SetMin(uintptr_t v)
 }
 
 void
+Symbolic::SetMinMax(uintptr_t min, uintptr_t max)
+{
+    SetMin(min);
+    SetMax(max);
+}
+
+void
 Symbolic::SetMax(Time v)
 {
     m_max=v.GetTimeStep();
@@ -94,6 +101,22 @@ Symbolic::GetSymbolic()
       s2e_kill_state(0,"Out of Range, Upper");
     }
   }
+}
+
+uintptr_t 
+Symbolic::GetSymbolicUintValue()
+{
+    GetSymbolic();
+    return m_symbolic;
+}
+
+Ipv4Address
+Symbolic::GetSymbolicIpv4Add()
+{
+    GetSymbolic();
+    Ipv4Address returnAddress;
+    returnAddress.Set(m_symbolic);
+    return returnAddress;
 }
 
 Time 

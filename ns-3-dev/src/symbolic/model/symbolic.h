@@ -5,6 +5,7 @@
 // #include <list>
 #include "ns3/object.h"
 #include "ns3/nstime.h"
+#include "ns3/ipv4-address.h"
 
 namespace ns3 {
 
@@ -22,9 +23,12 @@ public:
 
   void SetMax(uintptr_t v);
   void SetMin(uintptr_t v);
+  void SetMinMax(uintptr_t min, uintptr_t max);
   void SetMax(Time v);
   void SetMin(Time v);
   void GetSymbolic();
+  uintptr_t GetSymbolicUintValue();
+  Ipv4Address GetSymbolicIpv4Add();
   Time GetSymbolicTime();
   void PrintRange();
   void PrintRange(char const* name);

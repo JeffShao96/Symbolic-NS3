@@ -26,23 +26,23 @@ main (int argc, char *argv[])
 {
   Time::SetResolution (Time::MS); 
   
-  Ptr<Symbolic> sym1 = CreateObject<Symbolic>();
-  sym1->SetAttribute("Min",UintegerValue(1));
+  Ptr<Symbolic> d0 = CreateObject<Symbolic>();
+  d0->SetAttribute("Min",UintegerValue(1));
   // We have Muitlple way to set a Max or Min.
-  // sym1->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
-  // sym1->SetMin(1);
-  // sym1->SetMin(Second(1));
-  // sym1->SetMin(Time("1ms"));
-  sym1->SetAttribute("Max",UintegerValue(1000));
+  // d0->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
+  // d0->SetMin(1);
+  // d0->SetMin(Second(1));
+  // d0->SetMin(Time("1ms"));
+  d0->SetAttribute("Max",UintegerValue(1000));
 
-  Ptr<Symbolic> sym2 = CreateObject<Symbolic>();
-  sym2->SetAttribute("Min",UintegerValue(1));
-  sym2->SetAttribute("Max",UintegerValue(1000));
+  Ptr<Symbolic> d1 = CreateObject<Symbolic>();
+  d1->SetAttribute("Min",UintegerValue(1));
+  d1->SetAttribute("Max",UintegerValue(1000));
 
 
-  std::vector<PointToPointHelper> pointToPoint (2);
-  pointToPoint[0].SetChannelAttribute ("SymbolicDelay", PointerValue (sym1));
-  pointToPoint[1].SetChannelAttribute ("SymbolicDelay", PointerValue (sym2));
+  std::vector<PointToPointHelper> p2p (2);
+  p2p[0].SetChannelAttribute ("SymbolicDelay", PointerValue (d0));
+  p2p[1].SetChannelAttribute ("SymbolicDelay", PointerValue (d1));
 
   NodeContainer nodes;
   nodes.Create (3); 
@@ -52,8 +52,8 @@ main (int argc, char *argv[])
   nodeAdjacencyList[1] = NodeContainer (nodes.Get (1), nodes.Get (2));
 
   std::vector<NetDeviceContainer> devices (2);
-  devices[0] = pointToPoint[0].Install (nodeAdjacencyList[0]);
-  devices[1] = pointToPoint[1].Install (nodeAdjacencyList[1]);
+  devices[0] = p2p[0].Install (nodeAdjacencyList[0]);
+  devices[1] = p2p[1].Install (nodeAdjacencyList[1]);
 
   InternetStackHelper stack;
   stack.Install (nodes);
@@ -88,7 +88,7 @@ main (int argc, char *argv[])
   snd.Stop (Seconds (10.0));
 
   Simulator::Run ();
-  Symbolic Diff=sym1-sym2;
+  Symbolic Diff = d0 - d1;
   Diff.PrintRange("Diff");
   Simulator::Destroy ();
   s2e_kill_state(0,"Program Terminated");
