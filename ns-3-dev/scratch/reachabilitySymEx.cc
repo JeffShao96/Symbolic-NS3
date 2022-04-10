@@ -89,6 +89,6 @@ main (int argc, char *argv[])
   Simulator::Run ();
   Simulator::Destroy ();
   symObj0->PrintRange("symIP0");
-  s2e_kill_state(0,"Program Stopped.");
+  symObj0->Stop("Program terminated");
   return 0;
 }

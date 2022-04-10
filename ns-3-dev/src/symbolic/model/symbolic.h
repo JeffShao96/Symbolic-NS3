@@ -31,9 +31,15 @@ public:
   Ipv4Address GetSymbolicIpv4Add();
   Time GetSymbolicTime();
   void PrintRange();
+  static void PrintRange(char const* name, uintptr_t v);
+  static void PrintRangeTime(char const* name, Time t);
   void PrintRange(char const* name);
   void PrintSignedRange();
   void PrintSignedRange(char const* name);
+  static void Stop(char const* name);
+  static void Print(const char * s);
+  static void Print(uintptr_t v);
+
   uintptr_t GetUpperBound();
   uintptr_t GetLowerBound();
 

@@ -136,6 +136,43 @@ Symbolic::PrintRange()
 }
 
 void 
+Symbolic::PrintRange(char const* name, uintptr_t v)
+{
+  if(s2e_is_symbolic(&v,sizeof(v)) != 1)
+  {
+    s2e_printf("%s is not a symbolic variable.",name);
+  }else{
+    uintptr_t upper;
+    uintptr_t lower;
+    s2e_get_range(v,&lower,&upper);
+    s2e_printf("The range of %s Variables is %ld,%ld",name,lower,upper);
+    s2e_printf("The range of %s Variables is %lu,%lu",name,lower,upper);
+  }
+}
+
+void
+Symbolic::Print(const char *s){
+  s2e_printf("%s",s);
+}
+
+void
+Symbolic::Print(uintptr_t v){
+  s2e_printf("UInt Value %lu",v);
+  s2e_printf("Int Value %ld",v);
+}
+
+void 
+Symbolic::PrintRangeTime(char const* name, Time t)
+{
+  if(s2e_is_symbolic(&t,sizeof(t)) != 1)
+  {
+    s2e_printf("%s is not a symbolic Time.",name);
+  }else{
+    PrintRange(name,t.GetTimeStep());
+  }
+}
+
+void 
 Symbolic::PrintRange(char const* name)
 {
   uintptr_t upper;
@@ -145,6 +182,11 @@ Symbolic::PrintRange(char const* name)
   s2e_printf("The range of %s Variables is %lu,%lu",name,lower,upper);
 }
 
+void
+Symbolic::Stop(char const* name)
+{
+  s2e_kill_state_printf(0,name);
+}
 
 uintptr_t 
 Symbolic::GetUpperBound()

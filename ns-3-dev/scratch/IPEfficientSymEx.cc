@@ -113,6 +113,6 @@ main (int argc, char *argv[])
   Simulator::Run ();
   Simulator::Destroy ();
 
-  s2e_kill_state(0,"Program Stopped.");
+  symObj0->Stop("Program terminated");
   return 0;
 }
