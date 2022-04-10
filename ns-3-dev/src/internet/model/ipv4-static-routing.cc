@@ -67,12 +67,47 @@ Ipv4StaticRouting::AddNetworkRouteTo (Ipv4Address network,
                                       uint32_t metric)
 {
   NS_LOG_FUNCTION (this << network << " " << networkMask << " " << nextHop << " " << interface << " " << metric);
-  Ipv4RoutingTableEntry *route = new Ipv4RoutingTableEntry ();
-  *route = Ipv4RoutingTableEntry::CreateNetworkRouteTo (network,
-                                                        networkMask,
-                                                        nextHop,
-                                                        interface);
-  m_networkRoutes.push_back (make_pair (route,metric));
+
+  Ipv4RoutingTableEntry route = Ipv4RoutingTableEntry::CreateNetworkRouteTo (network,
+                                                                             networkMask,
+                                                                             nextHop,
+                                                                             interface);
+
+  Ipv4RoutingTableEntry *routePtr = new Ipv4RoutingTableEntry (route);
+  uint16_t masklen = networkMask.GetPrefixLength ();
+
+  for (NetworkRoutesI i = m_networkRoutes.begin (); 
+    i != m_networkRoutes.end (); 
+    i++) 
+  {
+    Ipv4RoutingTableEntry *j=i->first;
+    uint32_t metricTmp =i->second;
+    Ipv4Mask maskTmp = (j)->GetDestNetworkMask ();
+    uint16_t masklenTmp = maskTmp.GetPrefixLength ();
+    uint32_t interfaceIdxTmp = (j)->GetInterface ();
+
+    if(masklen > masklenTmp){
+      m_networkRoutes.insert (i,make_pair (routePtr, metric));
+      return;
+    }else if(masklen < masklenTmp){
+      continue;
+    }else{
+      if(metric < metricTmp){
+        m_networkRoutes.insert (i,make_pair (routePtr, metric));
+        return;
+      }else if(metric > metricTmp){
+        continue;
+      }else{
+        if(interface <= interfaceIdxTmp){
+          m_networkRoutes.insert (i,make_pair (routePtr, metric));
+          return;
+        }else{
+          continue;
+        }
+      }
+    }
+  }
+  m_networkRoutes.push_back (make_pair (routePtr, metric));
 }
 
 void 
@@ -82,11 +117,46 @@ Ipv4StaticRouting::AddNetworkRouteTo (Ipv4Address network,
                                       uint32_t metric)
 {
   NS_LOG_FUNCTION (this << network << " " << networkMask << " " << interface << " " << metric);
-  Ipv4RoutingTableEntry *route = new Ipv4RoutingTableEntry ();
-  *route = Ipv4RoutingTableEntry::CreateNetworkRouteTo (network,
-                                                        networkMask,
-                                                        interface);
-  m_networkRoutes.push_back (make_pair (route,metric));
+
+  Ipv4RoutingTableEntry route = Ipv4RoutingTableEntry::CreateNetworkRouteTo (network,
+                                                                             networkMask,
+                                                                             interface);
+
+  Ipv4RoutingTableEntry *routePtr = new Ipv4RoutingTableEntry (route);
+  uint16_t masklen = networkMask.GetPrefixLength ();
+
+  for (NetworkRoutesI i = m_networkRoutes.begin (); 
+    i != m_networkRoutes.end (); 
+    i++) 
+  {
+    Ipv4RoutingTableEntry *j=i->first;
+    uint32_t metricTmp =i->second;
+    Ipv4Mask maskTmp = (j)->GetDestNetworkMask ();
+    uint16_t masklenTmp = maskTmp.GetPrefixLength ();
+    uint32_t interfaceIdxTmp = (j)->GetInterface ();
+
+    if(masklen > masklenTmp){
+      m_networkRoutes.insert (i,make_pair (routePtr, metric));
+      return;
+    }else if(masklen < masklenTmp){
+      continue;
+    }else{
+      if(metric < metricTmp){
+        m_networkRoutes.insert (i,make_pair (routePtr, metric));
+        return;
+      }else if(metric > metricTmp){
+        continue;
+      }else{
+        if(interface <= interfaceIdxTmp){
+          m_networkRoutes.insert (i,make_pair (routePtr, metric));
+          return;
+        }else{
+          continue;
+        }
+      }
+    }
+  }
+  m_networkRoutes.push_back (make_pair (routePtr, metric));
 }
 
 void 
@@ -224,8 +294,6 @@ Ipv4StaticRouting::LookupStatic (Ipv4Address dest, Ptr<NetDevice> oif)
 {
   NS_LOG_FUNCTION (this << dest << " " << oif);
   Ptr<Ipv4Route> rtentry = 0;
-  uint16_t longest_mask = 0;
-  uint32_t shortest_metric = 0xffffffff;
   /* when sending on local multicast, there have to be interface specified */
   if (dest.IsLocalMulticast ())
     {
@@ -239,7 +307,12 @@ Ipv4StaticRouting::LookupStatic (Ipv4Address dest, Ptr<NetDevice> oif)
       return rtentry;
     }
 
-
+  uint16_t masklenRec = 32;
+  uint32_t interfaceRec = 0;
+  uint32_t metricRec = 0xffffffff;
+  uint8_t matchRst = 1; //must be non-zero
+  Ipv4RoutingTableEntry *jRec = NULL;
+  bool sendFlag = false;
   for (NetworkRoutesI i = m_networkRoutes.begin (); 
        i != m_networkRoutes.end (); 
        i++) 
@@ -249,47 +322,60 @@ Ipv4StaticRouting::LookupStatic (Ipv4Address dest, Ptr<NetDevice> oif)
       Ipv4Mask mask = (j)->GetDestNetworkMask ();
       uint16_t masklen = mask.GetPrefixLength ();
       Ipv4Address entry = (j)->GetDestNetwork ();
-      NS_LOG_LOGIC ("Searching for route to " << dest << ", checking against route to " << entry << "/" << masklen);
-      if (mask.IsMatch (dest, entry)) 
-        {
-          NS_LOG_LOGIC ("Found global network route " << j << ", mask length " << masklen << ", metric " << metric);
-          if (oif != 0)
-            {
-              if (oif != m_ipv4->GetNetDevice (j->GetInterface ()))
-                {
-                  NS_LOG_LOGIC ("Not on requested interface, skipping");
-                  continue;
-                }
-            }
-          if (masklen < longest_mask) // Not interested if got shorter mask
-            {
-              NS_LOG_LOGIC ("Previous match longer, skipping");
-              continue;
-            }
-          if (masklen > longest_mask) // Reset metric if longer masklen
-            {
-              shortest_metric = 0xffffffff;
-            }
-          longest_mask = masklen;
-          if (metric > shortest_metric)
-            {
-              NS_LOG_LOGIC ("Equal mask length, but previous metric shorter, skipping");
-              continue;
-            }
-          shortest_metric = metric;
-          Ipv4RoutingTableEntry* route = (j);
-          uint32_t interfaceIdx = route->GetInterface ();
-          rtentry = Create<Ipv4Route> ();
-          rtentry->SetDestination (route->GetDest ());
-          rtentry->SetSource (m_ipv4->SourceAddressSelection (interfaceIdx, route->GetDest ()));
-          rtentry->SetGateway (route->GetGateway ());
-          rtentry->SetOutputDevice (m_ipv4->GetNetDevice (interfaceIdx));
-          if (masklen == 32)
-            {
-              break;
-            }
+      uint32_t interfaceIdx = (j)->GetInterface ();
+      // NOT SUPPORT send through the requested interface, ignored
+      NS_LOG_LOGIC ("Searching for route to " << dest << ", checking against route to " << entry << "/" << masklen << ", Metric is "<< metric << ", Interface is " << j->GetInterface ());
+      if(interfaceRec != interfaceIdx){
+        NS_LOG_LOGIC("Changed Interface");
+        if(matchRst == 0){
+          sendFlag = true;
+          break;
         }
+        else{
+          masklenRec = masklen;
+          metricRec = metric;
+          interfaceRec = interfaceIdx;
+          matchRst = mask.MatchCalc(dest, entry);
+        }
+      }else if (metricRec != metric){
+        NS_LOG_LOGIC("Changed metric");
+        if(matchRst == 0){
+          sendFlag = true;
+          break;
+        }
+        else{
+          masklenRec = masklen;
+          metricRec = metric;
+          interfaceRec = interfaceIdx;
+          matchRst = mask.MatchCalc(dest, entry);
+        }
+      }else if(masklenRec != masklen){
+        NS_LOG_LOGIC("Changed masklen");
+        if(matchRst == 0){
+          sendFlag = true;
+          break;
+        }
+        else{
+          masklenRec = masklen;
+          metricRec = metric;
+          interfaceRec = interfaceIdx;
+          matchRst = mask.MatchCalc(dest, entry);
+        }
+      }else{
+        NS_LOG_LOGIC("In the same group");
+        matchRst = mask.MatchCalc(dest, entry, matchRst);
+      }
+      jRec = j;
     }
+  if(matchRst == 0)
+    sendFlag = true;
+  if(sendFlag){
+    rtentry = Create<Ipv4Route> ();
+    rtentry->SetDestination ((jRec)->GetDest ());
+    rtentry->SetSource (m_ipv4->SourceAddressSelection (interfaceRec, (jRec)->GetDest ()));
+    rtentry->SetGateway ((jRec)->GetGateway ());
+    rtentry->SetOutputDevice (m_ipv4->GetNetDevice (interfaceRec));
+  }
   if (rtentry != 0)
     {
       NS_LOG_LOGIC ("Matching route via " << rtentry->GetGateway () << " at the end");

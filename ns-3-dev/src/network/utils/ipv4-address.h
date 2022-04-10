@@ -290,6 +290,14 @@ public:
    */
   bool IsMatch (Ipv4Address a, Ipv4Address b) const;
   /**
+   * \param a first address to compare
+   * \param b second address to compare
+   * \param record the result record of current group
+   * \return 1 if both addresses are equal in their masked bits, 
+   * corresponding to this mask
+   */
+  uint8_t MatchCalc (Ipv4Address a, Ipv4Address b, uint8_t record = 0) const;
+  /**
    *
    * \deprecated Use the == operator (same functionality)
    *

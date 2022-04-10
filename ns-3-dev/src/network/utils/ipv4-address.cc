@@ -120,6 +120,21 @@ Ipv4Mask::IsEqual (Ipv4Mask other) const
     }
 }
 
+uint8_t 
+Ipv4Mask::MatchCalc (Ipv4Address a, Ipv4Address b, uint8_t record) const
+{
+  NS_LOG_FUNCTION (this << a << b << record);
+  uint32_t temp = ((a.Get () & m_mask) ^ (b.Get () & m_mask));
+  uint8_t tempRec = 0;
+  for(int i = 0; i < 32; i++){
+    uint8_t index = temp & 1;
+    temp = temp >> 1;
+    tempRec = tempRec | index;
+  }
+  record = record & tempRec;
+  return record;
+}
+
 bool 
 Ipv4Mask::IsMatch (Ipv4Address a, Ipv4Address b) const
 {
