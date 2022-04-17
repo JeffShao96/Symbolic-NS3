@@ -9,11 +9,7 @@
 #include "ns3/point-to-point-module.h"
 #include "ns3/applications-module.h"
 #include "ns3/internet-apps-module.h"
-#include "ctime"
-
-#include "/home/s2e/s2e/s2e.h"
-
-
+#include "ns3/symbolic-module.h"
 
 //Network Topology
 //

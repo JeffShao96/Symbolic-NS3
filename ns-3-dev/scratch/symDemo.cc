@@ -8,7 +8,6 @@
 #include "ns3/internet-module.h"
 #include "ns3/point-to-point-module.h"
 #include "ns3/applications-module.h"
-#include "/home/s2e/s2e/s2e.h"
 #include "ns3/symbolic-module.h"
 
 //Network Topology
@@ -26,23 +25,16 @@ main (int argc, char *argv[])
 {
   Time::SetResolution (Time::MS); 
   
-  Ptr<Symbolic> d0 = CreateObject<Symbolic>();
-  d0->SetAttribute("Min",UintegerValue(1));
-  // We have Muitlple way to set a Max or Min.
-  // d0->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
-  // d0->SetMin(1);
-  // d0->SetMin(Second(1));
-  // d0->SetMin(Time("1ms"));
-  d0->SetAttribute("Max",UintegerValue(1000));
-
-  Ptr<Symbolic> d1 = CreateObject<Symbolic>();
-  d1->SetAttribute("Min",UintegerValue(1));
-  d1->SetAttribute("Max",UintegerValue(1000));
-
+  Ptr<Symbolic> sym0 = CreateObject<Symbolic>();
+  sym0->SetMinMax(1, 1000);
+  uint32_t d0 = sym0->GetSymbolicUintValue();
+  Ptr<Symbolic> sym1 = CreateObject<Symbolic>();
+  sym1->SetMinMax(1, 1000);
+  uint32_t d1 = sym1->GetSymbolicUintValue();
 
   std::vector<PointToPointHelper> p2p (2);
-  p2p[0].SetChannelAttribute ("SymbolicDelay", PointerValue (d0));
-  p2p[1].SetChannelAttribute ("SymbolicDelay", PointerValue (d1));
+  p2p[0].SetChannelAttribute("Delay",TimeValue(Time(d0)));
+  p2p[1].SetChannelAttribute("Delay",TimeValue(Time(d1)));
 
   NodeContainer nodes;
   nodes.Create (3); 
@@ -88,9 +80,9 @@ main (int argc, char *argv[])
   snd.Stop (Seconds (10.0));
 
   Simulator::Run ();
-  Symbolic Diff = d0 - d1;
-  Diff.PrintRange("Diff");
+  int diff = d0 - d1;
+  Symbolic::PrintRange("Diff",diff);
   Simulator::Destroy ();
-  Diff.Stop("Program terminated");
+  Symbolic::Stop("Program terminated");
   return 0;
 }

@@ -19,8 +19,6 @@
 #ifndef POINT_TO_POINT_CHANNEL_H
 #define POINT_TO_POINT_CHANNEL_H
 
-#define SYMBOLIC
-
 #include <list>
 #include "ns3/channel.h"
 #include "ns3/ptr.h"
@@ -28,15 +26,10 @@
 #include "ns3/data-rate.h"
 #include "ns3/traced-callback.h"
 
-#ifdef SYMBOLIC
-#include <ns3/symbolic.h>
-#endif
-
 namespace ns3 {
 
 class PointToPointNetDevice;
 class Packet;
-class Symbolic;
 
 /**
  * \ingroup point-to-point
@@ -107,8 +100,6 @@ public:
    */
   virtual Ptr<NetDevice> GetDevice (std::size_t i) const;
 
-
-
 protected:
   /**
    * \brief Get the delay associated with this channel
@@ -153,20 +144,13 @@ protected:
     (Ptr<const Packet> packet,
      Ptr<NetDevice> txDevice, Ptr<NetDevice> rxDevice,
      Time duration, Time lastBitTime);
-
-
-
-
+                    
 private:
   /** Each point to point link has exactly two net devices. */
   static const std::size_t N_DEVICES = 2;
 
   Time          m_delay;    //!< Propagation delay
   std::size_t        m_nDevices; //!< Devices of this channel
-  #ifdef SYMBOLIC
-  Ptr<Symbolic> m_symbolicDelay;
-  #endif
-
 
   /**
    * The trace source for the packet transmission animation events that the 

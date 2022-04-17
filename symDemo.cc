@@ -8,7 +8,6 @@
 #include "ns3/internet-module.h"
 #include "ns3/point-to-point-module.h"
 #include "ns3/applications-module.h"
-#include "/home/s2e/s2e/s2e.h"
 #include "ns3/symbolic-module.h"
 
 //Network Topology
@@ -26,23 +25,16 @@ main (int argc, char *argv[])
 {
   Time::SetResolution (Time::MS); 
   
+  Ptr<Symbolic> sym0 = CreateObject<Symbolic>();
+  sym0->SetMinMax(1, 1000);
+  uint32_t d0 = sym0->GetSymbolicUintValue();
   Ptr<Symbolic> sym1 = CreateObject<Symbolic>();
-  sym1->SetAttribute("Min",UintegerValue(1));
-  // We have Muitlple way to set a Max or Min.
-  // sym1->SetAttribute("Min",UintegerValue(Time(1ms).GetTimeStep()));
-  // sym1->SetMin(1);
-  // sym1->SetMin(Second(1));
-  // sym1->SetMin(Time("1ms"));
-  sym1->SetAttribute("Max",UintegerValue(1000));
+  sym1->SetMinMax(1, 1000);
+  uint32_t d1 = sym1->GetSymbolicUintValue();
 
-  Ptr<Symbolic> sym2 = CreateObject<Symbolic>();
-  sym2->SetAttribute("Min",UintegerValue(1));
-  sym2->SetAttribute("Max",UintegerValue(1000));
-
-
-  std::vector<PointToPointHelper> pointToPoint (2);
-  pointToPoint[0].SetChannelAttribute ("SymbolicDelay", PointerValue (sym1));
-  pointToPoint[1].SetChannelAttribute ("SymbolicDelay", PointerValue (sym2));
+  std::vector<PointToPointHelper> p2p (2);
+  p2p[0].SetChannelAttribute("Delay",TimeValue(Time(d0)));
+  p2p[1].SetChannelAttribute("Delay",TimeValue(Time(d1)));
 
   NodeContainer nodes;
   nodes.Create (3); 
@@ -52,8 +44,8 @@ main (int argc, char *argv[])
   nodeAdjacencyList[1] = NodeContainer (nodes.Get (1), nodes.Get (2));
 
   std::vector<NetDeviceContainer> devices (2);
-  devices[0] = pointToPoint[0].Install (nodeAdjacencyList[0]);
-  devices[1] = pointToPoint[1].Install (nodeAdjacencyList[1]);
+  devices[0] = p2p[0].Install (nodeAdjacencyList[0]);
+  devices[1] = p2p[1].Install (nodeAdjacencyList[1]);
 
   InternetStackHelper stack;
   stack.Install (nodes);
@@ -88,9 +80,9 @@ main (int argc, char *argv[])
   snd.Stop (Seconds (10.0));
 
   Simulator::Run ();
-  Symbolic Diff=sym1-sym2;
-  Diff.PrintRange("Diff");
+  int diff = d0 - d1;
+  Symbolic::PrintRange("Diff",diff);
   Simulator::Destroy ();
-  s2e_kill_state(0,"Program Terminated");
+  Symbolic::Stop("Program terminated");
   return 0;
 }
