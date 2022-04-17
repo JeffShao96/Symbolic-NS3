@@ -16,15 +16,12 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#define SYMBOLIC
-
 #include "point-to-point-channel.h"
 #include "point-to-point-net-device.h"
 #include "ns3/trace-source-accessor.h"
 #include "ns3/packet.h"
 #include "ns3/simulator.h"
 #include "ns3/log.h"
-#include "ns3/pointer.h"
 
 namespace ns3 {
 
@@ -43,19 +40,12 @@ PointToPointChannel::GetTypeId (void)
                    TimeValue (Seconds (0)),
                    MakeTimeAccessor (&PointToPointChannel::m_delay),
                    MakeTimeChecker ())
-    #ifdef SYMBOLIC
-    .AddAttribute ("SymbolicDelay", "Propagation delay through the channel",
-                   PointerValue (),
-                   MakePointerAccessor (&PointToPointChannel::m_symbolicDelay),
-                   MakePointerChecker<Symbolic>())
-    #endif
     .AddTraceSource ("TxRxPointToPoint",
                      "Trace source indicating transmission of packet "
                      "from the PointToPointChannel, used by the Animation "
                      "interface.",
                      MakeTraceSourceAccessor (&PointToPointChannel::m_txrxPointToPoint),
                      "ns3::PointToPointChannel::TxRxAnimationCallback")
-
   ;
   return tid;
 }
@@ -68,10 +58,6 @@ PointToPointChannel::PointToPointChannel()
     Channel (),
     m_delay (Seconds (0.)),
     m_nDevices (0)
-    // #ifdef SYMBOLIC
-    // ,
-    // m_symbolicDelay()
-    // #endif
 {
   NS_LOG_FUNCTION_NOARGS ();
 }
@@ -110,14 +96,6 @@ PointToPointChannel::TransmitStart (
   NS_ASSERT (m_link[1].m_state != INITIALIZING);
 
   uint32_t wire = src == m_link[0].m_src ? 0 : 1;
-  //if No point then we use the normal ns3
-  #ifdef SYMBOLIC
-  if(m_symbolicDelay>0)
-  {
-    m_delay = m_symbolicDelay->GetSymbolicTime();
-  }
-  
-  #endif
 
   Simulator::ScheduleWithContext (m_link[wire].m_dst->GetNode ()->GetId (),
                                   txTime + m_delay, &PointToPointNetDevice::Receive,
