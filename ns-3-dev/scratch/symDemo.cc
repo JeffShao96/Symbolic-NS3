@@ -67,15 +67,15 @@ main (int argc, char *argv[])
   rcv.Start (Seconds (1.0));
   rcv.Stop (Seconds (10.0));
 
-  UdpClientHelper snd1 (interfaces[0].GetAddress (1), 2333);
+  UdpClientHelper snd0 (interfaces[0].GetAddress (1), 2333);
+  snd0.SetAttribute ("MaxPackets", UintegerValue (1));
+
+  UdpClientHelper snd1 (interfaces[1].GetAddress (1), 2333);
   snd1.SetAttribute ("MaxPackets", UintegerValue (1));
 
-  UdpClientHelper snd2 (interfaces[1].GetAddress (1), 2333);
-  snd2.SetAttribute ("MaxPackets", UintegerValue (1));
-
   ApplicationContainer snd;
-  snd.Add(snd1.Install (nodes.Get (0)));
-  snd.Add(snd2.Install (nodes.Get (1)));
+  snd.Add(snd0.Install (nodes.Get (0)));
+  snd.Add(snd1.Install (nodes.Get (1)));
   snd.Start (Seconds (1.0));
   snd.Stop (Seconds (10.0));
 
