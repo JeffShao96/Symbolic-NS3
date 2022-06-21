@@ -1,17 +1,17 @@
-# Symbolic-NS3 (Under Development)
+# Symbolic ns-3
 
-Symbolic NS-3 is our on-going project to extend NS-3 for exhaustive testing where a user simulates a network protocol in all possible network environments with respect to some uncertain factors. Specifically, we modify and extend NS-3 by leveraging [symbolic execution](https://en.wikipedia.org/wiki/Symbolic_execution) so that it can be easily and efficiently used for exhaustive testing.
+sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [s2e](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 website](https://symbolicns3.github.io) for more information. 
 
-Below is a short introduction of Symbolic NS-3, and you can find more information at the website (https://symbolicns3.github.io). Please feel free to contact us (emails can be found in the short paper), if you have any questions, suggestions, or comments. 
+This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
 
 
+Install S2E
+Install sym-ns-3
+Run examples
 
-Below is the instruction to download, install, and execute Symbolic NS-3.
-
-## Instruction
 
 We recommand using Ubuntu 18.04 LTS or 20.04 LTS or higher Ubuntu version for this project. 
-### Tips for Windows users using Virtualization Tools
+## Tips for Windows users using Virtualization Tools
 You may have Linux installed via Vmware Workstation Player or Oracle VirtualBox.
 While setup your virtual machine, we recommand to allocate at least:
 * 1 vCPU
@@ -21,18 +21,19 @@ While setup your virtual machine, we recommand to allocate at least:
 We also recommand enable *Intel VT-x/AMD-v* for virtual machine, which enables KVM feature for guest system. Using KVM in this project would reduce building and running time.
 
 Some combinations of system version and virtualization tools may work fine on Windows, but we found that the combination of latest Vmware and Ubuntu LTS is the best approach.
-### Build S2E with s2e-env
+
+## Build S2E with s2e-env
 We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run Symbolic NS-3.
 
 We highly recommend to build S2E with s2e-env. However, you can manually build S2E as well. 
-#### Convenient Script
+### Convenient Script
 We have written a shell file to build s2e. If successful, please skip to [Skip Point](#build-the-image).
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
 chmod +x initS2E.sh 
 ./initS2E.sh
 ```
-#### Manual Install Steps
+### Manual Install Steps
 Install the packages for s2e-env
 
     sudo apt-get update
@@ -74,7 +75,7 @@ build the source code
     
 **The process takes about 60 mins.**
 
-### Build S2E-NS-3 image
+## Build S2E-NS-3 image
 Since S2E disables the networking when running, we need to install NS-3 into the image before we run S2E-NS-3.
 
 `launch.sh` is the script that runs after the image is created. We have modified it to install NS-3. If you want to install other softwares, you can use that as an example.
@@ -117,7 +118,7 @@ Set S2E permissions
     sudo usermod -a -G kvm $(whoami)
     sudo chmod ugo+r /boot/vmlinu*
     
-#### Build the image
+### Build the image
 **Log out and log back** in so that your group membership is re-evaluated.
 
 Run `s2e image_build` to check what image is available.
