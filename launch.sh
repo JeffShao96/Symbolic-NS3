@@ -120,27 +120,23 @@ install_cgc_packages() {
     linux-libc-dev_10551-cfe-rc8_i386.deb
     "
 
-    local CUR_DIR
-    CUR_DIR="$(pwd)"
-
-    # Download packages in temp folder
-    cd /tmp
+    wget https://github.com/S2E/guest-images/releases/download/v2.0.0/cgc-packages.tar.gz
+    tar xzvf cgc-packages.tar.gz
 
     # Install the CGC packages
     for PACKAGE in ${CGC_PACKAGES}; do
-        wget --no-check-certificate https://cgcdist.s3.amazonaws.com/release-final/deb/${PACKAGE}
         sudo dpkg -i --force-confnew ${PACKAGE}
         rm -f ${PACKAGE}
     done
 
-    cd "$CUR_DIR"
+    rm -f cgc-packages.tar.gz
 }
 
 sudo apt-get update
 install_i386
 install_systemtap
 
-#install the NS-3
+#install sym-ns-3
 sudo apt-get -y install g++ python3 gcc 
 git clone https://github.com/JeffShao96/Symbolic-NS3
 cp -r Symbolic-NS3/. .
@@ -157,7 +153,6 @@ if [ $(has_cgc_kernel) -eq 1 ]; then
 fi
 
 install_kernel
-
 
 # QEMU will stop (-no-reboot)
 sudo reboot
