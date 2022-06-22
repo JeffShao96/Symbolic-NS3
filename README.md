@@ -1,6 +1,6 @@
 # Symbolic ns-3
 
-sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [s2e](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 website](https://symbolicns3.github.io) for more information. This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
+sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [s2e](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 project website](https://symbolicns3.github.io) for more information. This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
 
 Instructions
 * [1. Operating systems](#1-operating-systems)
@@ -12,11 +12,12 @@ Instructions
 
 We have tested our code mainly using Ubuntu, so we recommend  Ubuntu 18.04 LTS, 20.04 LTS, or higher versions. 
 
-For Windows users, you may install Ubuntu via VMware Workstation Player or Oracle VirtualBox. Please enable `Intel VT-x/AMD-v` for your virtual machine, which enables the KVM feature and consequently reduces the building and running time. We recommend  the following configurations for your virtual machine:
+For Windows users, you may install Ubuntu via VMware Workstation Player or Oracle VirtualBox. We recommend the following configurations for your virtual machine:
 * at least 1 vCPU
 * at least 4 GB RAM
 * at least 80 GB Hard Disk (SSD Disk is better)
 
+Please turn on `Intel VT-x` or `AMD-V` on your machine, which enables KVM and consequently greatly reduces the building and running time. 
 
 ## 2. Install S2E
 
@@ -27,6 +28,7 @@ There are two different methods to install S2E. We recommend the script method. 
 * [2.2 step-by-step method](#22-step-by-step--method)
 
 ### 2.1 Script method
+
 You may install S2E using our [`initS2E.sh`](./initS2E.sh) script by typing the following commands. 
 
 ```bash
@@ -36,6 +38,7 @@ chmod +x initS2E.sh
 ```
 
 ### 2.2 step-by-step  method
+
 This method is essentially the same as the [s2e-env method](http://s2e.systems/docs/s2e-env.html#installing-s2e-env) described on the S2E website.
 
 Install the packages
@@ -106,15 +109,13 @@ Modify S2E file `images.json` to increase the memory and disk sizes of the virtu
 
     wget -O source/guest-images/images.json https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/images.json
 
-Set S2E permissions. Sometimes, you may need to log out and then back for these commands to take effect.
+Set S2E permissions. 
 
-    sudo usermod -a -G docker $(whoami)
-    sudo usermod -a -G kvm $(whoami)
     sudo chmod ugo+r /boot/vmlinu*
 
 Build an S2E virtual machine image with sym-ns-3 (this step takes a long time). Note that, we choose the Linux Debian 9.2.1 i386 image, as it is small.
 
-    s2e image_build debian-9.2.1-i386 
+    s2e image_build debian-9.2.1-i386 -g
 
     
 ## 4. Run examples
