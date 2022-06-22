@@ -10,9 +10,9 @@ Instructions
 
 ## 1. Operating systems
 
-We have tested our code mainly using Ubuntu, so we recommand Ubuntu 18.04 LTS, 20.04 LTS, or higher versions. 
+We have tested our code mainly using Ubuntu, so we recommend  Ubuntu 18.04 LTS, 20.04 LTS, or higher versions. 
 
-For Windows users, you may install Ubuntu via Vmware Workstation Player or Oracle VirtualBox. Please enable *Intel VT-x/AMD-v* for your virtual machine, which enables the KVM feature and consequently reduces the building and running time. We recommand the following configurations for your virtual machine:
+For Windows users, you may install Ubuntu via VMware Workstation Player or Oracle VirtualBox. Please enable `Intel VT-x/AMD-v` for your virtual machine, which enables the KVM feature and consequently reduces the building and running time. We recommend  the following configurations for your virtual machine:
 * at least 1 vCPU
 * at least 4 GB RAM
 * at least 80 GB Hard Disk (SSD Disk is better)
@@ -22,9 +22,9 @@ For Windows users, you may install Ubuntu via Vmware Workstation Player or Oracl
 
 We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run sym-ns-3, as it is good at symbolically executing big software systems.
 
-There are two different methods to install S2E. We recommend the script method. If it does not work, please then try the step by step method.
+There are two different methods to install S2E. We recommend the script method. If it does not work, please then try the step-by-step  method.
 * [2.1 Script method](#21-script-method) (Recommended)
-* [2.2 Step by step method](#22-step-by-step-method)
+* [2.2 step-by-step method](#22-step-by-step-method)
 
 ### 2.1 Script method
 You may install S2E using our [`initS2E.sh`](./initS2E.sh) script by typing the following commands. 
@@ -35,7 +35,7 @@ chmod +x initS2E.sh
 ./initS2E.sh
 ```
 
-### 2.2 Step by step method
+### 2.2 step-by-step  method
 This method is essentially the same as the [s2e-env method](http://s2e.systems/docs/s2e-env.html#installing-s2e-env) described on the S2E website.
 
 Install the packages
@@ -74,9 +74,9 @@ Build S2E (this step takes a long time)
 
 This step creates an S2E virtual machine image that contains sym-ns-3. 
 
-There are two different methods to install sym-ns-3. We recommend the script method. If it does not work, please then try the step by step method.
+There are two different methods to install sym-ns-3. We recommend the script method. If it does not work, please then try the step-by-step  method.
 * [3.1 Script method](#31-script-method) (Recommended)
-* [3.2 Step by step method](#32-step-by-step-method)
+* [3.2 step-by-step  method](#32-step-by-step-method)
 
 ### 3.1 Script method
 
@@ -92,7 +92,7 @@ chmod +x initSymns3.sh
 ./initSymns3.sh
 ```
 
-### 3.2 Step by step method
+### 3.2 step-by-step  method
 
 Go to the `s2e` folder, if not currently
 
