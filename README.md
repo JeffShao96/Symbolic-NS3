@@ -1,6 +1,6 @@
 # Symbolic ns-3
 
-sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [s2e](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 project website](https://symbolicns3.github.io) for more information. This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
+sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [S2E](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 project website](https://symbolicns3.github.io) for more information. This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
 
 Instructions
 * [1. Operating systems](#1-operating-systems)
