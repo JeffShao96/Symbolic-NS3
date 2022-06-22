@@ -138,7 +138,7 @@ Create an S2E project named `demo` using the virtual machine image that we built
     
 Download S2E file `bootstrap.sh` for this example
     
-    cd project/demo
+    cd projects/demo
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-demo.sh
     
 Launch S2E and sym-ns-3 to run this example
@@ -157,7 +157,7 @@ Create an S2E project named `tcp` using the virtual machine image that we built.
     
 Download S2E file `bootstrap.sh` for this example
     
-    cd project/tcp
+    cd projects/tcp
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-tcp.sh
     
 Launch S2E and sym-ns-3 to run this example
@@ -176,7 +176,7 @@ Create an S2E project named `ip` using the virtual machine image that we built.
     
 Download S2E file `bootstrap.sh` for this example
     
-    cd project/ip
+    cd projects/ip
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-ip.sh
     
 Launch S2E and sym-ns-3 to run this example
@@ -195,7 +195,7 @@ Create an S2E project named `ip2` using the virtual machine image that we built.
     
 Download S2E file `bootstrap.sh` for this example
     
-    cd project/ip2
+    cd projects/ip2
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-ip2.sh
     
 Launch S2E and sym-ns-3 to run this example
