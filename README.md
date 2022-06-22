@@ -72,13 +72,18 @@ Build S2E (this step takes a long time)
 
 ## 3. Install sym-ns-3
 
-This step creates an S2E virtual machine image that contains sym-ns-3. Please run the following commands in the `s2e` folder.
+This step creates an S2E virtual machine image that contains sym-ns-3. 
 
 There are two different methods to install sym-ns-3. We recommend the script method. If it does not work, please then try the step by step method.
 * [3.1 Script method](#31-script-method) (Recommended)
 * [3.2 Step by step method](#32-step-by-step-method)
 
 ### 3.1 Script method
+
+Go to the `s2e` folder, if not currently
+
+    cd s2e
+
 You may install sym-ns-3 using our [`initSymns3.sh`](./initSymns3.sh) script by typing the following commands. 
 
 ```bash
@@ -88,6 +93,10 @@ chmod +x initSymns3.sh
 ```
 
 ### 3.2 Step by step method
+
+Go to the `s2e` folder, if not currently
+
+    cd s2e
 
 Modify S2E file `launch.sh` to download and install sym-ns-3 to an S2E virtual machine image.
 
@@ -110,37 +119,86 @@ Build an S2E virtual machine image with sym-ns-3 (this step takes a long time). 
     
 ## 4. Run examples
 
-Create and run the project
+There are four examples as described in our WNS3 2022 paper.
+* [4.1 First exhaustive testing example](#41-first-exhaustive-testing-example)
+* [4.2 TCP exhaustive performance evaluation](#42-tcp-exhaustive-performance-evaluation)
+* [4.3 Whole network IP reachability](#43-whole-network-ip-reachability)
+* [4.4 More Efficient IP reachability](#44-more-efficient-ip-reachability)
 
-create an empty project in S2E:
 
-    s2e new_project -m -i <image_name> -n <project_name> -t linux
+### 4.1 First exhaustive testing example
 
-Example:
-Create an empty project named pointToPoint, linux type, it runs in a 32-bit system `debian-9.2.1-i386`
+Go to the `s2e` folder, if not currently
+
+    cd s2e
+
+Create an S2E project named `demo` using the virtual machine image that we built.
 
     s2e new_project -m -i debian-9.2.1-i386 -n demo -t linux
     
-Download the exhaustive testing demo
+Download S2E file `bootstrap.sh` for this example
     
-    cd $S2EDIR/project/demo
-    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap.sh
+    cd project/demo
+    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-demo.sh
     
-Execute the exhaustive testing demo
+Launch S2E and sym-ns-3 to run this example
 
     ./launch-s2e.sh
-    
-You can use [symDemo.cc](./ns-3-dev/scratch/symDemo.cc) and [bootstrap.sh](./bootstrap.sh) as an example to write your own project.
 
-To run other demo, for example, to run [reachabilitySymEx](./ns-3-dev/scratch/reachabilitySymEx.cc), you should change the last line of [bootstrap.sh](./bootstrap.sh) into
-    
-    ${S2EGET} "reachabilitySymEx.cc"            #use [S2EGET] to pass the script in to the image
-    cp reachabilitySymEx.cc ns-3-dev/scratch    #copy the script to scratch folder
-    cd ns-3-dev                             
-    ./waf --run reachabilitySymEx               #run the NS-3 scratch
-    
+### 4.2 TCP exhaustive performance evaluation
 
-Then run the s2e script
+Go to the `s2e` folder, if not currently
+
+    cd s2e
+
+Create an S2E project named `tcp` using the virtual machine image that we built.
+
+    s2e new_project -m -i debian-9.2.1-i386 -n tcp -t linux
+    
+Download S2E file `bootstrap.sh` for this example
+    
+    cd project/tcp
+    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-tcp.sh
+    
+Launch S2E and sym-ns-3 to run this example
+
+    ./launch-s2e.sh
+
+### 4.3 Whole network IP reachability
+
+Go to the `s2e` folder, if not currently
+
+    cd s2e
+
+Create an S2E project named `ip` using the virtual machine image that we built.
+
+    s2e new_project -m -i debian-9.2.1-i386 -n ip -t linux
+    
+Download S2E file `bootstrap.sh` for this example
+    
+    cd project/ip
+    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-ip.sh
+    
+Launch S2E and sym-ns-3 to run this example
+
+    ./launch-s2e.sh
+
+### 4.4 More efficient IP reachability
+
+Go to the `s2e` folder, if not currently
+
+    cd s2e
+
+Create an S2E project named `ip2` using the virtual machine image that we built.
+
+    s2e new_project -m -i debian-9.2.1-i386 -n ip2 -t linux
+    
+Download S2E file `bootstrap.sh` for this example
+    
+    cd project/ip2
+    wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-ip2.sh
+    
+Launch S2E and sym-ns-3 to run this example
 
     ./launch-s2e.sh
 
