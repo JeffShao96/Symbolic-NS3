@@ -132,7 +132,8 @@ Symbolic::PrintRange()
   uintptr_t upper;
   uintptr_t lower;
   s2e_get_range(m_symbolic,&lower,&upper);
-  s2e_printf("The range of Symbolic Variables is %ld,%ld",lower,upper);
+  s2e_printf("The range of Symbolic Variables is %ld, %ld as signed integers",lower,upper);
+  s2e_printf("The range of Symbolic Variables is %lu, %lu as unsigned integers",lower,upper);
 }
 
 void 
@@ -145,8 +146,8 @@ Symbolic::PrintRange(char const* name, uintptr_t v)
     uintptr_t upper;
     uintptr_t lower;
     s2e_get_range(v,&lower,&upper);
-    s2e_printf("The range of %s Variables is %ld,%ld",name,lower,upper);
-    s2e_printf("The range of %s Variables is %lu,%lu",name,lower,upper);
+    s2e_printf("The range of variable %s is [%ld, %ld] as signed integers",name,lower,upper);
+    s2e_printf("The range of variable %s is [%lu, %lu] as unsigned integers",name,lower,upper);
   }
 }
 
@@ -157,8 +158,8 @@ Symbolic::Print(const char *s){
 
 void
 Symbolic::Print(uintptr_t v){
-  s2e_printf("UInt Value %lu",v);
-  s2e_printf("Int Value %ld",v);
+  s2e_printf("Value is %ld as signed integer",v);
+  s2e_printf("Value is %lu as unsigned integer",v);
 }
 
 void 
@@ -178,8 +179,8 @@ Symbolic::PrintRange(char const* name)
   uintptr_t upper;
   uintptr_t lower;
   s2e_get_range(m_symbolic,&lower,&upper);
-  s2e_printf("The range of %s Variables is %ld,%ld",name,lower,upper);
-  s2e_printf("The range of %s Variables is %lu,%lu",name,lower,upper);
+  s2e_printf("The range of variable %s is [%ld, %ld] as signed integers",name,lower,upper);
+  s2e_printf("The range of variable %s is [%lu, %lu] as unsigned integers",name,lower,upper);
 }
 
 void
