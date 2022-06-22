@@ -1,139 +1,116 @@
 # Symbolic ns-3
 
-sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [s2e](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 website](https://symbolicns3.github.io) for more information. 
+sym-ns-3 is proposed for efficient exhaustive testing, where we need to exhaustively test a network protocol or a network application, for all possible cases. It extends a well-developed and widely-used network simulator, [ns-3](https://www.nsnam.org/), and leverages a powerful symbolic execution platform, [s2e](https://github.com/S2E/s2e). Please refer to the [sym-ns-3 website](https://symbolicns3.github.io) for more information. This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
 
-This repository contains all the necessary code for installing, building, and running sym-ns-3 and the examples. 
+Instructions
+* [1. Operating systems](#1-operating-systems)
+* [2. Install S2E](#2-install-s2e)
+* [3. Install sym-ns-3](#3-install-sym-ns-3)
+* [4. Run examples](#4-run-examples)
+
+## 1. Operating systems
+
+We have tested our code mainly using Ubuntu, so we recommand Ubuntu 18.04 LTS, 20.04 LTS, or higher versions. 
+
+For Windows users, you may install Ubuntu via Vmware Workstation Player or Oracle VirtualBox. Please enable *Intel VT-x/AMD-v* for your virtual machine, which enables the KVM feature and consequently reduces the building and running time. We recommand the following configurations for your virtual machine:
+* at least 1 vCPU
+* at least 4 GB RAM
+* at least 80 GB Hard Disk (SSD Disk is better)
 
 
-Install S2E
-Install sym-ns-3
-Run examples
+## 2. Install S2E
 
+We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run sym-ns-3, as it is good at symbolically executing big software systems.
 
-We recommand using Ubuntu 18.04 LTS or 20.04 LTS or higher Ubuntu version for this project. 
-## Tips for Windows users using Virtualization Tools
-You may have Linux installed via Vmware Workstation Player or Oracle VirtualBox.
-While setup your virtual machine, we recommand to allocate at least:
-* 1 vCPU
-* 4 GB RAM
-* 80 GB Hard Disk (SSD Disk is better)
+There are two different methods to install S2E. We recommend the script method. If it does not work, please then try the step by step method.
+* [2.1 Script method](#21-script-method) (Recommended)
+* [2.2 Step by step method](#22-step-by-step-method)
 
-We also recommand enable *Intel VT-x/AMD-v* for virtual machine, which enables KVM feature for guest system. Using KVM in this project would reduce building and running time.
+### 2.1 Script method
+You may install S2E using our [`initS2E.sh`](./initS2E.sh) script by typing the following commands. 
 
-Some combinations of system version and virtualization tools may work fine on Windows, but we found that the combination of latest Vmware and Ubuntu LTS is the best approach.
-
-## Build S2E with s2e-env
-We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run Symbolic NS-3.
-
-We highly recommend to build S2E with s2e-env. However, you can manually build S2E as well. 
-### Convenient Script
-We have written a shell file to build s2e. If successful, please skip to [Skip Point](#build-the-image).
 ```bash
 wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initS2E.sh
 chmod +x initS2E.sh 
 ./initS2E.sh
 ```
-### Manual Install Steps
-Install the packages for s2e-env
+
+### 2.2 Step by step method
+This method is essentially the same as the [s2e-env method](http://s2e.systems/docs/s2e-env.html#installing-s2e-env) described on the S2E website.
+
+Install the packages
 
     sudo apt-get update
     sudo apt-get install git gcc python3 python3-dev python3-venv
 
-Clone the source code for s2e-env
+Clone the source code of s2e-env
 
     git clone https://github.com/s2e/s2e-env.git
 
-Create a virtual environment to build S2E
+Create a virtual environment
 
     cd s2e-env
     python3 -m venv venv
     . venv/bin/activate
-**You should do the following steps in the virtual environment**
-
-If you want to quit from the virtual environment, use the following command:
-
-    deactivate
-
-Install the s2e-env
+    
+Install s2e-env
 
     pip install --upgrade pip
     pip install .
     
-**Note: if your pip version is earlier than v19, use the following command:**
 
-    pip install --process-dependency-links .
+Download the source code of S2E
 
-Download the source code for S2E
-
-    mkdir $S2EDIR
-    cd $S2EDIR
+    mkdir ../s2e
+    cd ../s2e
     s2e init
     
-build the source code
+Build S2E (this step takes a long time)
 
     s2e build
     
-**The process takes about 60 mins.**
 
-## Build S2E-NS-3 image
-Since S2E disables the networking when running, we need to install NS-3 into the image before we run S2E-NS-3.
+## 3. Install sym-ns-3
 
-`launch.sh` is the script that runs after the image is created. We have modified it to install NS-3. If you want to install other softwares, you can use that as an example.
+This step creates an S2E virtual machine image that contains sym-ns-3. Please run the following commands in the `s2e` folder.
 
-    cd $S2EDIR
+There are two different methods to install sym-ns-3. We recommend the script method. If it does not work, please then try the step by step method.
+* [3.1 Script method](#31-script-method) (Recommended)
+* [3.2 Step by step method](#32-step-by-step-method)
+
+### 3.1 Script method
+You may install sym-ns-3 using our [`initSymns3.sh`](./initSymns3.sh) script by typing the following commands. 
+
+```bash
+wget https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/initSymns3.sh
+chmod +x initSymns3.sh 
+./initSymns3.sh
+```
+
+### 3.2 Step by step method
+
+Modify S2E file `launch.sh` to download and install sym-ns-3 to an S2E virtual machine image.
+
     wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/launch.sh
 
-Since NS-3 is quite big, sometimes we need to extend the image or memory size.
+Modify S2E file `images.json` to increase the memory and disk sizes of the virtual machine image as sym-ns-3 is quite big.
 
-Modify `$S2EDIR/source/guest-images/images.json`
+    wget -O source/guest-images/images.json https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/images.json
 
-Example:
-```
-    "cgc_debian-9.2.1-i386": {
-      "name": "Debian i386 image with CGC kernel and user-space packages",
-      "image_group": "linux",
-      "url": "https://drive.google.com/open?id=1vexW3emZ5-jQ2hohelCfM3iAdFmcFqbq",
-      "iso": {
-        "url": "https://cdimage.debian.org/mirror/cdimage/archive/9.2.1/i386/iso-cd/debian-9.2.1-i386-netinst.iso"
-      },
-      "os": {
-        "name": "cgc_debian",
-        "version": "9.2.1",
-        "arch": "i386",
-        "build": "",
-        "binary_formats": ["decree"]
-      },
-      "hw": {
-        "default_disk_size": "4G",                  --This is the disk size of image, make sure your hardware has enough space before you extend it
-        "default_snapshot_size": "256M",            --This is the Memory size, you should not set it too large, "1G" is recommended.
-        "nic": "e1000"
-      }
-    }
-
-```
-
-Set S2E permissions
+Set S2E permissions. Sometimes, you may need to log out and then back for these commands to take effect.
 
     sudo usermod -a -G docker $(whoami)
     sudo usermod -a -G kvm $(whoami)
     sudo chmod ugo+r /boot/vmlinu*
+
+Build an S2E virtual machine image with sym-ns-3 (this step takes a long time). Note that, we choose the Linux Debian 9.2.1 i386 image, as it is small.
+
+    s2e image_build debian-9.2.1-i386 
+
     
-### Build the image
-**Log out and log back** in so that your group membership is re-evaluated.
+## 4. Run examples
 
-Run `s2e image_build` to check what image is available.
-
-    s2e image_build <image_name> -g
-
-For example:
-
-    s2e image_build debian-9.2.1-i386 -g
-
-If KVM is not available, use the following command:
-
-    s2e image_build -n <image_name>
-    
-### Create and run the project
+Create and run the project
 
 create an empty project in S2E:
 
