@@ -24,7 +24,7 @@ We choose [S2E](https://s2e.systems/) as the symbolic execution platform to run 
 
 There are two different methods to install S2E. We recommend the script method. If it does not work, please then try the step-by-step  method.
 * [2.1 Script method](#21-script-method) (Recommended)
-* [2.2 step-by-step method](#22-step-by-step-method)
+* [2.2 step-by-step method](#22-step-by-step--method)
 
 ### 2.1 Script method
 You may install S2E using our [`initS2E.sh`](./initS2E.sh) script by typing the following commands. 
@@ -76,7 +76,7 @@ This step creates an S2E virtual machine image that contains sym-ns-3.
 
 There are two different methods to install sym-ns-3. We recommend the script method. If it does not work, please then try the step-by-step  method.
 * [3.1 Script method](#31-script-method) (Recommended)
-* [3.2 step-by-step  method](#32-step-by-step-method)
+* [3.2 step-by-step  method](#32-step-by-step--method)
 
 ### 3.1 Script method
 
