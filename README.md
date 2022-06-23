@@ -8,14 +8,18 @@ Instructions
 * [3. Install sym-ns-3](#3-install-sym-ns-3)
 * [4. Run examples](#4-run-examples)
 
+Help 
+* [Jianfei Shao](mailto:jianfei.shao@huskers.unl.edu?subject=SymbolicNS3)
+* [Lisong Xu](mailto:xu@unl.edu?subject=SymbolicNS3)
+
 ## 1. Operating systems
 
-We have tested our code mainly using Ubuntu, so we recommend  Ubuntu 18.04 LTS, 20.04 LTS, or higher versions. 
+We have tested our code mainly using Ubuntu, so we recommend Ubuntu 18.04 LTS, 20.04 LTS, or higher versions. 
 
-For Windows users, you may install Ubuntu via VMware Workstation Player or Oracle VirtualBox. We recommend the following configurations for your virtual machine:
+For Windows users, you may install Ubuntu via [VMware Workstation Player](https://www.vmware.com/au/products/workstation-player.html) or [Oracle VM VirtualBox](https://www.virtualbox.org/). We recommend the following configurations for your virtual machine:
 * at least 1 vCPU
 * at least 4 GB RAM
-* at least 80 GB Hard Disk (SSD Disk is better)
+* at least 80 GB Hard Disk (SSD is better)
 
 Please turn on `Intel VT-x` or `AMD-V` on your machine, which enables KVM and consequently greatly reduces the building and running time. 
 
@@ -105,7 +109,7 @@ Modify S2E file `launch.sh` to download and install sym-ns-3 to an S2E virtual m
 
     wget -O source/guest-images/Linux/s2e_home/launch.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/launch.sh
 
-Modify S2E file `images.json` to increase the memory and disk sizes of the virtual machine image as sym-ns-3 is quite big.
+Modify S2E file `images.json` to increase the memory and disk sizes of the virtual machine image as ns-3 and thus sym-ns-3 is quite big.
 
     wget -O source/guest-images/images.json https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/images.json
 
@@ -113,7 +117,7 @@ Set S2E permissions.
 
     sudo chmod ugo+r /boot/vmlinu*
 
-Build an S2E virtual machine image with sym-ns-3 (this step takes a long time). Note that, we choose the Linux Debian 9.2.1 i386 image, as it is small.
+Build an S2E virtual machine image with sym-ns-3 configured and installed (this step takes a long time). Note that, we choose the Linux Debian 9.2.1 i386 image, as it is small.
 
     s2e image_build debian-9.2.1-i386 -g
 
@@ -137,12 +141,12 @@ Create an S2E project named `demo` using the virtual machine image that we built
 
     s2e new_project -m -i debian-9.2.1-i386 -n demo -t linux
     
-Download S2E file `bootstrap.sh` for this example
+Modify S2E file `bootstrap.sh` to run this sym-ns-3 example once the virtual machine is launched 
     
     cd projects/demo
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-demo.sh
     
-Launch S2E and sym-ns-3 to run this example
+Finally, launch S2E and sym-ns-3 to run this example
 
     ./launch-s2e.sh
 
@@ -156,12 +160,12 @@ Create an S2E project named `tcp` using the virtual machine image that we built.
 
     s2e new_project -m -i debian-9.2.1-i386 -n tcp -t linux
     
-Download S2E file `bootstrap.sh` for this example
+Modify S2E file `bootstrap.sh` to run this sym-ns-3 example once the virtual machine is launched 
     
     cd projects/tcp
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-tcp.sh
     
-Launch S2E and sym-ns-3 to run this example
+Finally, launch S2E and sym-ns-3 to run this example
 
     ./launch-s2e.sh
 
@@ -175,12 +179,12 @@ Create an S2E project named `ip` using the virtual machine image that we built.
 
     s2e new_project -m -i debian-9.2.1-i386 -n ip -t linux
     
-Download S2E file `bootstrap.sh` for this example
+Modify S2E file `bootstrap.sh` to run this sym-ns-3 example once the virtual machine is launched 
     
     cd projects/ip
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-ip.sh
     
-Launch S2E and sym-ns-3 to run this example
+Finally, launch S2E and sym-ns-3 to run this example
 
     ./launch-s2e.sh
 
@@ -194,12 +198,12 @@ Create an S2E project named `ip2` using the virtual machine image that we built.
 
     s2e new_project -m -i debian-9.2.1-i386 -n ip2 -t linux
     
-Download S2E file `bootstrap.sh` for this example
+Modify S2E file `bootstrap.sh` to run this sym-ns-3 example once the virtual machine is launched 
     
     cd projects/ip2
     wget -O bootstrap.sh https://raw.githubusercontent.com/JeffShao96/Symbolic-NS3/master/bootstrap-ip2.sh
     
-Launch S2E and sym-ns-3 to run this example
+Finally, launch S2E and sym-ns-3 to run this example
 
     ./launch-s2e.sh
 
