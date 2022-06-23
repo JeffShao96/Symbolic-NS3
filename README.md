@@ -124,7 +124,7 @@ Build an S2E virtual machine image with sym-ns-3 configured and installed (this 
     
 ## 4. Run examples
 
-There are four examples as described in our WNS3 2022 paper.
+There are four examples as described in our WNS3 2022 paper (link will be added soon).
 * [4.1 First exhaustive testing example](#41-first-exhaustive-testing-example)
 * [4.2 TCP exhaustive performance evaluation](#42-tcp-exhaustive-performance-evaluation)
 * [4.3 Whole network IP reachability](#43-whole-network-ip-reachability)
