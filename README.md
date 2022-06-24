@@ -128,7 +128,7 @@ There are four examples as described in our WNS3 2022 paper (link will be added 
 * [4.1 First exhaustive testing example](#41-first-exhaustive-testing-example)
 * [4.2 TCP exhaustive performance evaluation](#42-tcp-exhaustive-performance-evaluation)
 * [4.3 Whole network IP reachability](#43-whole-network-ip-reachability)
-* [4.4 More Efficient IP reachability](#44-more-efficient-ip-reachability)
+* [4.4 More efficient IP reachability](#44-more-efficient-ip-reachability)
 
 
 ### 4.1 First exhaustive testing example
